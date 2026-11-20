@@ -37,6 +37,7 @@
 Sincronías: "con la lista de todos" entra **mientras cuenta con los dedos**. "menos la mía" entra cuando sus manos se detienen.
 
 ## 4. Qué generar en Flow
+> **Actualización del 20-11-2026:** el movimiento se hace en **Remotion**. De Flow se generan **solo las imágenes**, incluidas las variantes A/B de pose. Los bloques "Video" quedan como descripción del movimiento que Remotion va a reproducir (fundido entre la pose A y la B, respiración, parpadeo), no como prompts que haya que generar.
 **Agente APAGADO · Nano Banana 2.1 · 9:16 · videos con Veo 3.1 Lite · MP4 · sin audio.**
 **Ropa de Dani:** chaleco de punto crema sobre camiseta blanca y jeans.
 **Amiga:** el mismo estilo de trazo, rostro mínimo, pelo corto castaño y suéter terracota suave. La misma en todos los planos.

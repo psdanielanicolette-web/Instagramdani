@@ -37,6 +37,7 @@ La Ansiedad fue una quietud en guardia y el Burnout, funcionar sin estar. La Sol
 Sincronías: "Me río en el momento justo" entra **con** la risa. "Y no estoy ahí" entra cuando la sonrisa se apaga. "Estoy rodeada" entra cuando la cámara llega al umbral.
 
 ## 4. Qué generar en Flow
+> **Actualización del 20-11-2026:** el movimiento se hace en **Remotion**. De Flow se generan **solo las imágenes**, incluidas las variantes A/B de pose. Los bloques "Video" quedan como descripción del movimiento que Remotion va a reproducir (fundido entre la pose A y la B, respiración, parpadeo), no como prompts que haya que generar.
 **Agente APAGADO · Nano Banana 2.1 · 9:16 · videos con Veo 3.1 Lite · MP4 · sin audio.**
 **Ropa de Dani:** suéter oliva y pantalón negro (la base del maestro).
 **Amigas:** tres mujeres en el mismo estilo de trazo, con rostro mínimo y ropa en neutros cálidos (beige, crema, terracota suave). Mantenerlas iguales en todos los planos.

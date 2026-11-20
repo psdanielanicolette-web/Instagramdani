@@ -15,13 +15,14 @@
 | 8 | Quizá no necesitas descansar más. | Quizá no necesito descansar más. | 7 · Ventana (mundo interno) |
 | Cierre | Quizá esto que cargas tiene otra forma, que todavía no has mirado. (12 palabras) | **A:** Quizá esto que cargo tiene otra forma. (7) · **B:** Quizá esto tiene otra forma, que no he mirado. (9) | Espiral |
 
-⚠️ **Cierre:** el original tiene 12 palabras, y el techo del sistema es de 8 (el cierre del Reel 1 tenía 8). La A es la más limpia. **Pasa por Teo.**
+✅ **Cierre elegido por Daniela (7 palabras): "Quizá esto que cargo tiene otra forma."** Pasa por Teo.
 
 ## 2. Filtro de Teo (pilar Burnout)
 - "Quizá no necesito descansar más" abre la pregunta sin prescribir. ✔️ Dice que el descanso no es la respuesta, pero no da otra.
 - Ninguna frase habla de "demasiado trabajo". ✔️
 - "Estoy funcionando / pero no estoy" es el corazón del pilar (funcionar sin habitarse). ✔️
 
-## 3. Mejoras propuestas (Daniela decide)
-1. **Entrada temprana de la primera frase:** "Dormí todo el fin de semana" empieza a entrar a los ≈0,9 s, mientras el obturador se abre, en vez de a los 1,7 s. Es una prueba de retención frente al Reel 1. Ver `estrategia/tendencias-ganchos.md`.
-2. **CTA de envío en el caption:** se agrega al final "Si alguien que quieres vive así, envíaselo." y se mantiene "Guárdalo si te resonó."
+## 3. Decisiones de Daniela (20-11-2026)
+1. ✅ **Entrada temprana de la primera frase:** la primera palabra entra a los ≈0,9 s, mientras el obturador se abre. Se aplica a todos los Reels desde el Reel 2.
+2. ❌ **Sin llamado a la acción adicional:** no se agrega "envíaselo".
+3. **Movimiento:** se hace en Remotion, no en Flow. De Flow solo se generan las **imágenes** (y las variantes de pose A/B); los prompts de "Video" del documento de planos ya no se usan.

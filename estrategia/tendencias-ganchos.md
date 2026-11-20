@@ -30,7 +30,9 @@
 | Llamado a compartir | "Si alguien que quieres vive así, envíaselo." | "¡Etiqueta a 3 amigas!" |
 | Storytelling personal | Primera persona en los Reels | Testimonios de pacientes |
 
-## 4. Cambios concretos que propongo (Daniela aprueba)
+## 4. Cambios propuestos · decisión de Daniela (20-11-2026)
+> ✅ Intro con la primera frase temprana (≈0,9 s) · ✅ portadas en versión corta · ❌ **sin llamado a la acción adicional** (los puntos 1 y 2 de abajo quedan descartados).
+
 1. **Agregar un CTA de envío** a los Reels y Carruseles, alternando con "guárdalo":
    - Para Reels: *"Si alguien que quieres vive así, envíaselo."*
    - Para Carruseles: *"Guárdalo. O envíaselo a quien lo necesite leer."*
