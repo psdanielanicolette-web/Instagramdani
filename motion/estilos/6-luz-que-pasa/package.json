@@ -1,0 +1,10 @@
+{
+  "name": "estilo-6-luz-que-pasa",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.9.72 preview",
+    "check": "npx --yes hyperframes@0.9.72 check",
+    "render": "npx --yes hyperframes@0.9.72 render"
+  }
+}

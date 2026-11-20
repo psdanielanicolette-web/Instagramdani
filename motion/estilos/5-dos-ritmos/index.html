@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Estilo 5 · Dos ritmos</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+@font-face { font-family: "Fraunces"; font-weight: 600; src: url("assets/fonts/Fraunces-600.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 500; src: url("assets/fonts/Inter-500.woff2") format("woff2"); }
+:root { --blanco:#FFFEFE; --beige:#EED3BB; --arena:#D7B18F; --verde:#3F4A3A; --tinta:#1A1A1A; --borgona:#7D4F6A; --rosado:#F4D5DC; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1920px; overflow:hidden; background:var(--blanco); }
+#root { position:relative; width:100%; height:100%; overflow:hidden; background:var(--blanco); }
+.capa { position:absolute; inset:0; }
+.frase { position:absolute; left:92px; top:150px; width:800px; font-family:"Fraunces",serif; font-weight:600;
+         font-size:76px; line-height:1.4; color:var(--tinta); }
+.frase .p { display:inline-block; opacity:0; }
+.frase .k { color:var(--borgona); }
+.etq { font-family:"Inter",sans-serif; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; }
+
+#arriba { position:absolute; left:0; top:0; width:1080px; height:960px; background:var(--verde); overflow:hidden; }
+#lista { position:absolute; left:92px; top:300px; }
+.tarea { font-family:"Inter",sans-serif; font-weight:500; font-size:40px; color:#FFFEFE; height:78px; display:flex; align-items:center; gap:26px; opacity:.85; }
+.caja { width:38px; height:38px; border:3px solid #FFFEFE; border-radius:8px; position:relative; display:inline-block; }
+.tick { position:absolute; inset:5px; background:#EED3BB; border-radius:3px; transform-origin:center; }
+#banda { position:absolute; left:0; top:0; width:1080px; height:270px; background:linear-gradient(#3F4A3A 78%, rgba(63,74,58,0)); }
+#reloj { position:absolute; right:92px; top:150px; font-family:"Inter",sans-serif; font-weight:500; font-size:64px; color:#EED3BB; letter-spacing:.04em; }
+#etqA { position:absolute; left:92px; top:170px; font-size:28px; color:#EED3BB; }
+#abajo { position:absolute; left:0; top:960px; width:1080px; height:960px; background:#FFFEFE; overflow:hidden; }
+#etqB { position:absolute; left:92px; top:1010px; font-size:28px; color:var(--borgona); }
+#dani { position:absolute; left:442px; top:863px; width:618px; }
+#luz { position:absolute; left:500px; top:960px; width:700px; height:960px; background: radial-gradient(ellipse 340px 520px at 70% 30%, rgba(255,236,205,.9), rgba(255,236,205,0) 70%); opacity:.5; }
+#div { position:absolute; left:0; top:958px; width:1080px; height:4px; background:var(--arena); }
+.frase { top:1100px; left:70px; width:520px; font-size:60px; line-height:1.3; }
+#veladura { position:absolute; left:0; top:0; width:1080px; height:960px; background:var(--beige); opacity:0; }
+#veladura2 { position:absolute; left:0; top:960px; width:1080px; height:960px; background:var(--beige); mix-blend-mode:multiply; opacity:0; }
+#b8 { color:var(--borgona); top:1100px; }</style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="26" data-width="1080" data-height="1920">
+
+      <div id="escena" class="clip capa" data-start="0" data-duration="26" data-track-index="0">
+        <div id="arriba"><div id="lista"><div class="tarea" id="ta0"><span class="caja"><span class="tick" id="tk0"></span></span>responder correos</div>
+<div class="tarea" id="ta1"><span class="caja"><span class="tick" id="tk1"></span></span>reunión de equipo</div>
+<div class="tarea" id="ta2"><span class="caja"><span class="tick" id="tk2"></span></span>informe mensual</div>
+<div class="tarea" id="ta3"><span class="caja"><span class="tick" id="tk3"></span></span>llamar al banco</div>
+<div class="tarea" id="ta4"><span class="caja"><span class="tick" id="tk4"></span></span>pagar cuentas</div>
+<div class="tarea" id="ta5"><span class="caja"><span class="tick" id="tk5"></span></span>revisar pendientes</div>
+<div class="tarea" id="ta6"><span class="caja"><span class="tick" id="tk6"></span></span>almuerzo en el escritorio</div>
+<div class="tarea" id="ta7"><span class="caja"><span class="tick" id="tk7"></span></span>otra reunión</div>
+<div class="tarea" id="ta8"><span class="caja"><span class="tick" id="tk8"></span></span>supermercado</div>
+<div class="tarea" id="ta9"><span class="caja"><span class="tick" id="tk9"></span></span>mensajes</div>
+<div class="tarea" id="ta10"><span class="caja"><span class="tick" id="tk10"></span></span>preparar mañana</div>
+<div class="tarea" id="ta11"><span class="caja"><span class="tick" id="tk11"></span></span>responder correos</div>
+<div class="tarea" id="ta12"><span class="caja"><span class="tick" id="tk12"></span></span>reunión de equipo</div>
+<div class="tarea" id="ta13"><span class="caja"><span class="tick" id="tk13"></span></span>informe mensual</div>
+<div class="tarea" id="ta14"><span class="caja"><span class="tick" id="tk14"></span></span>llamar al banco</div>
+<div class="tarea" id="ta15"><span class="caja"><span class="tick" id="tk15"></span></span>pagar cuentas</div>
+<div class="tarea" id="ta16"><span class="caja"><span class="tick" id="tk16"></span></span>revisar pendientes</div>
+<div class="tarea" id="ta17"><span class="caja"><span class="tick" id="tk17"></span></span>mensajes</div>
+<div class="tarea" id="ta18"><span class="caja"><span class="tick" id="tk18"></span></span>preparar mañana</div>
+<div class="tarea" id="ta19"><span class="caja"><span class="tick" id="tk19"></span></span>responder correos</div></div>
+          <div id="banda"></div><div id="etqA" class="etq">afuera · todo avanza</div><div id="reloj">07:40</div></div>
+        <div id="veladura"></div>
+        <div id="abajo"></div>
+        <div id="luz"></div>
+        <img id="dani" src="assets/r2_de-pie-taza_ojos-abiertos.png" alt="" />
+        <span class="mota" id="m1" style="position:absolute;left:700px;top:1120px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m2" style="position:absolute;left:820px;top:1220px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m3" style="position:absolute;left:760px;top:1330px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m4" style="position:absolute;left:900px;top:1180px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m5" style="position:absolute;left:650px;top:1260px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m6" style="position:absolute;left:960px;top:1380px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m7" style="position:absolute;left:720px;top:1450px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+        <div id="veladura2"></div>
+        <div id="etqB" class="etq">adentro · el tiempo no pasa</div>
+        <div id="div"></div>
+      </div>
+<div id="b1" class="frase clip " data-start="0.8" data-duration="3.4" data-track-index="2"><span class="p">Dormí</span> <span class="p">todo</span> <span class="p">el</span> <span class="p">fin</span> <span class="p">de</span> <span class="p">semana.</span></div>
+<div id="b2" class="frase clip " data-start="3.7" data-duration="4.1" data-track-index="2"><span class="p">Llegó</span> <span class="p">el</span> <span class="p">lunes</span> <span class="p">y</span> <span class="p">amanecí</span> <span class="p">igual</span> <span class="p">de</span> <span class="p k">vacía.</span></div>
+<div id="b3" class="frase clip " data-start="7.3" data-duration="2.9" data-track-index="2"><span class="p">No</span> <span class="p">es</span> <span class="p">sueño</span> <span class="p">atrasado.</span></div>
+<div id="b4" class="frase clip " data-start="9.7" data-duration="2.9" data-track-index="2"><span class="p">Dormir</span> <span class="p">no</span> <span class="p">lo</span> <span class="p">repone.</span></div>
+<div id="b5" class="frase clip " data-start="12.1" data-duration="4.1" data-track-index="2"><span class="p">Estoy</span> <span class="p">funcionando</span> <span class="p">—</span> <span class="p">pero</span> <span class="p k">no</span> <span class="p k">estoy.</span></div>
+<div id="b6" class="frase clip " data-start="15.7" data-duration="3.5" data-track-index="2"><span class="p">Quizá</span> <span class="p">no</span> <span class="p">necesito</span> <span class="p">descansar</span> <span class="p">más.</span></div>
+<div id="b7" class="frase clip " data-start="18.7" data-duration="3.7" data-track-index="2"><span class="p">Quizá</span> <span class="p">esto</span> <span class="p">que</span> <span class="p">cargo</span> <span class="p">tiene</span> <span class="p">otra</span> <span class="p">forma,</span></div>
+<div id="b8" class="frase clip " data-start="21.9" data-duration="4.1" data-track-index="2"><span class="p">y</span> <span class="p">todavía</span> <span class="p">no</span> <span class="p">tiene</span> <span class="p">nombre.</span></div>
+    </div>
+    <script>
+
+const tl = gsap.timeline({ paused: true });
+// Texto de marca: palabra por palabra (0,12 s, 0,65 s, subida 18 px) y salida con fundido de 0,5 s
+function frase(sel, ini, fin, opts) {
+  opts = opts || {};
+  tl.fromTo(sel + " .p", { opacity: 0, y: opts.sube ?? 18 }, { opacity: 1, y: 0, duration: 0.65, stagger: opts.stagger ?? 0.12, ease: "power2.out" }, ini);
+  if (fin !== null && fin !== undefined) {
+    if (opts.salida) opts.salida(sel, fin);
+    else tl.to(sel + " .p", { opacity: 0, duration: 0.5, ease: "power1.in" }, fin);
+  }
+}
+// Polvo en la luz: trayectorias fijas (deterministas)
+function polvo(prefijo, n, t0) {
+  for (let i = 1; i <= n; i++) {
+    const dx = ((i * 37) % 60) - 30, dy = -40 - ((i * 23) % 60);
+    tl.fromTo("#" + prefijo + i, { opacity: 0, x: 0, y: 0 }, { opacity: 0.9, duration: 1.6, ease: "sine.out" }, t0 + 0.25 * i);
+    tl.to("#" + prefijo + i, { x: dx, y: dy, duration: 26 - t0 - 0.25 * i - 0.1, ease: "sine.inOut" }, t0 + 0.25 * i);
+  }
+}
+
+
+// Afuera: la lista corre y se tacha rápido (funcionar)
+tl.fromTo("#lista", { y: 0 }, { y: -1100, duration: 14, ease: "none" }, 0.4);
+for (let i = 0; i < 20; i++) tl.fromTo("#tk" + i, { scale: 0 }, { scale: 1, duration: 0.18, ease: "back.out(3)" }, 0.6 + i * 0.68);
+const horas = ['07:40', '08:15', '09:00', '09:30', '10:45', '11:20', '12:05', '13:10', '14:00', '15:25', '16:40', '17:15', '18:30', '19:05', '19:58'];
+// Reloj: cada hora es un estado fijo en el tiempo (determinista)
+horas.forEach((h, i) => tl.call(() => { document.getElementById("reloj").textContent = h; }, null, i * 0.95));
+tl.call(() => { document.getElementById("reloj").textContent = "07:40"; }, null, 0.001);
+// "pero no estoy.": afuera se detiene en seco
+tl.to("#lista", { opacity: 0.25, duration: 0.6 }, 13.8);
+tl.to("#etqA, #reloj", { opacity: 0.3, duration: 0.6 }, 13.8);
+// Adentro: Dani quieta, luz que respira, polvo lento, cámara con deriva leve
+tl.fromTo("#dani", { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 1.4, ease: "power2.out" }, 0.3);
+tl.to("#dani", { scale: 1.05, x: -10, duration: 24, ease: "none" }, 1.8);
+tl.to("#luz", { opacity: 0.85, duration: 2.4, ease: "sine.inOut", yoyo: true, repeat: 9 }, 0.5);
+tl.fromTo("#etqB, #etqA", { opacity: 0 }, { opacity: 1, duration: 0.8 }, 0.2);
+polvo("m", 7, 1.0);
+// Cierre: arriba se cubre de veladura cálida; abajo baja la luz
+tl.to("#veladura", { opacity: 0.92, duration: 1.8, ease: "sine.inOut" }, 15.4);
+tl.to("#veladura2", { opacity: 0.32, duration: 1.6, ease: "sine.inOut" }, 21.4);
+frase("#b1", 0.9, 3.6);
+frase("#b2", 3.8, 7.2);
+frase("#b3", 7.4, 9.6);
+frase("#b4", 9.8, 12.0);
+frase("#b5", 12.2, 15.6);
+frase("#b6", 15.8, 18.6);
+frase("#b7", 18.8, 21.8);
+frase("#b8", 22.0, null);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

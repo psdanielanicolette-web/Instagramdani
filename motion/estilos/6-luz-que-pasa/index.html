@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Estilo 6 · Luz que pasa</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+@font-face { font-family: "Fraunces"; font-weight: 600; src: url("assets/fonts/Fraunces-600.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 500; src: url("assets/fonts/Inter-500.woff2") format("woff2"); }
+:root { --blanco:#FFFEFE; --beige:#EED3BB; --arena:#D7B18F; --verde:#3F4A3A; --tinta:#1A1A1A; --borgona:#7D4F6A; --rosado:#F4D5DC; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1920px; overflow:hidden; background:var(--blanco); }
+#root { position:relative; width:100%; height:100%; overflow:hidden; background:var(--blanco); }
+.capa { position:absolute; inset:0; }
+.frase { position:absolute; left:92px; top:150px; width:800px; font-family:"Fraunces",serif; font-weight:600;
+         font-size:76px; line-height:1.4; color:var(--tinta); }
+.frase .p { display:inline-block; opacity:0; }
+.frase .k { color:var(--borgona); }
+.etq { font-family:"Inter",sans-serif; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; }
+
+#cam { position:absolute; inset:0; overflow:hidden; }
+#escena { position:absolute; inset:0; width:1080px; height:1920px; transform-origin:57% 40%; }
+#haz { position:absolute; inset:0; background: rgba(255,226,180,.55); mix-blend-mode:multiply;
+       clip-path: polygon(78% 33%, 100% 37%, 100% 62%, 70% 55%); opacity:0; }
+#brillo { position:absolute; inset:0; background: radial-gradient(ellipse 500px 700px at 90% 25%, rgba(255,240,215,.9), rgba(255,240,215,0) 70%); mix-blend-mode:screen; opacity:.3; }
+.dia { position:absolute; left:92px; top:1760px; font-size:28px; color:var(--borgona); opacity:0; }
+#veladura { background:var(--beige); mix-blend-mode:multiply; opacity:0; }
+#satura { background:#FFF8EF; mix-blend-mode:saturation; opacity:0; }
+#b8 { top:330px; color:var(--borgona); }
+</style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="26" data-width="1080" data-height="1920">
+
+      <div id="cam" class="clip capa" data-start="0" data-duration="26" data-track-index="0">
+        <img id="escena" src="assets/r2e_cama_APROBADA.png" alt="" />
+        <div id="haz" class="capa"></div>
+        <div id="brillo" class="capa"></div>
+        <span class="mota" id="m1" style="position:absolute;left:780px;top:420px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m2" style="position:absolute;left:880px;top:560px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m3" style="position:absolute;left:720px;top:640px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m4" style="position:absolute;left:960px;top:720px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m5" style="position:absolute;left:820px;top:860px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m6" style="position:absolute;left:700px;top:520px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m7" style="position:absolute;left:930px;top:980px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m8" style="position:absolute;left:770px;top:1100px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+<span class="mota" id="m9" style="position:absolute;left:1000px;top:600px;width:6px;height:6px;border-radius:50%;background:rgba(255,244,222,.95);box-shadow:0 0 10px rgba(255,226,180,.9);opacity:0"></span>
+        <div id="veladura" class="capa"></div>
+        <div id="satura" class="capa"></div>
+      </div>
+      <div id="dias" class="clip capa" data-start="0" data-duration="26" data-track-index="1">
+        <div id="d1" class="dia etq">sábado</div><div id="d2" class="dia etq">domingo</div><div id="d3" class="dia etq">lunes</div>
+      </div>
+<div id="b1" class="frase clip " data-start="0.8" data-duration="3.4" data-track-index="2"><span class="p">Dormí</span> <span class="p">todo</span> <span class="p">el</span> <span class="p">fin</span> <span class="p">de</span> <span class="p">semana.</span></div>
+<div id="b2" class="frase clip " data-start="3.7" data-duration="4.1" data-track-index="2"><span class="p">Llegó</span> <span class="p">el</span> <span class="p">lunes</span> <span class="p">y</span> <span class="p">amanecí</span> <span class="p">igual</span> <span class="p">de</span> <span class="p k">vacía.</span></div>
+<div id="b3" class="frase clip " data-start="7.3" data-duration="2.9" data-track-index="2"><span class="p">No</span> <span class="p">es</span> <span class="p">sueño</span> <span class="p">atrasado.</span></div>
+<div id="b4" class="frase clip " data-start="9.7" data-duration="2.9" data-track-index="2"><span class="p">Dormir</span> <span class="p">no</span> <span class="p">lo</span> <span class="p">repone.</span></div>
+<div id="b5" class="frase clip " data-start="12.1" data-duration="4.1" data-track-index="2"><span class="p">Estoy</span> <span class="p">funcionando</span> <span class="p">—</span> <span class="p">pero</span> <span class="p k">no</span> <span class="p k">estoy.</span></div>
+<div id="b6" class="frase clip " data-start="15.7" data-duration="3.5" data-track-index="2"><span class="p">Quizá</span> <span class="p">no</span> <span class="p">necesito</span> <span class="p">descansar</span> <span class="p">más.</span></div>
+<div id="b7" class="frase clip " data-start="18.7" data-duration="3.7" data-track-index="2"><span class="p">Quizá</span> <span class="p">esto</span> <span class="p">que</span> <span class="p">cargo</span> <span class="p">tiene</span> <span class="p">otra</span> <span class="p">forma,</span></div>
+<div id="b8" class="frase clip " data-start="21.9" data-duration="4.1" data-track-index="2"><span class="p">y</span> <span class="p">todavía</span> <span class="p">no</span> <span class="p">tiene</span> <span class="p">nombre.</span></div>
+    </div>
+    <script>
+
+const tl = gsap.timeline({ paused: true });
+// Texto de marca: palabra por palabra (0,12 s, 0,65 s, subida 18 px) y salida con fundido de 0,5 s
+function frase(sel, ini, fin, opts) {
+  opts = opts || {};
+  tl.fromTo(sel + " .p", { opacity: 0, y: opts.sube ?? 18 }, { opacity: 1, y: 0, duration: 0.65, stagger: opts.stagger ?? 0.12, ease: "power2.out" }, ini);
+  if (fin !== null && fin !== undefined) {
+    if (opts.salida) opts.salida(sel, fin);
+    else tl.to(sel + " .p", { opacity: 0, duration: 0.5, ease: "power1.in" }, fin);
+  }
+}
+// Polvo en la luz: trayectorias fijas (deterministas)
+function polvo(prefijo, n, t0) {
+  for (let i = 1; i <= n; i++) {
+    const dx = ((i * 37) % 60) - 30, dy = -40 - ((i * 23) % 60);
+    tl.fromTo("#" + prefijo + i, { opacity: 0, x: 0, y: 0 }, { opacity: 0.9, duration: 1.6, ease: "sine.out" }, t0 + 0.25 * i);
+    tl.to("#" + prefijo + i, { x: dx, y: dy, duration: 26 - t0 - 0.25 * i - 0.1, ease: "sine.inOut" }, t0 + 0.25 * i);
+  }
+}
+
+
+// El fin de semana pasa: la mancha de luz viaja por el piso (sábado → domingo → lunes)
+const formas = [
+  "polygon(78% 33%, 100% 37%, 100% 62%, 70% 55%)",
+  "polygon(66% 40%, 96% 46%, 88% 78%, 50% 66%)",
+  "polygon(40% 52%, 76% 58%, 60% 92%, 18% 80%)",
+  "polygon(78% 33%, 100% 37%, 100% 62%, 70% 55%)",
+];
+tl.set("#haz", { clipPath: formas[0] }, 0);
+tl.to("#haz", { opacity: 1, duration: 0.8 }, 0.1);
+tl.to("#haz", { clipPath: formas[1], duration: 2.3, ease: "sine.inOut" }, 0.3);
+tl.to("#haz", { clipPath: formas[2], duration: 2.3, ease: "sine.inOut" }, 2.6);
+tl.to("#haz", { opacity: 0, duration: 0.5 }, 4.6);
+tl.set("#haz", { clipPath: formas[3] }, 5.1);
+tl.to("#haz", { opacity: 0.6, backgroundColor: "rgba(255,240,222,.5)", duration: 1.2 }, 5.2);   // lunes: luz más pálida
+["#d1", "#d2", "#d3"].forEach((d, i) => {
+  tl.fromTo(d, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5 }, 0.2 + i * 2.3);
+  tl.to(d, { opacity: 0, duration: 0.4 }, i < 2 ? 2.2 + i * 2.3 : 7.0);
+});
+// Cámara ligada a la frase: se acerca a Dani en el desarrollo (máx. 1,3×), se aleja un poco en el cierre
+tl.fromTo("#escena", { scale: 1.02 }, { scale: 1.08, x: -10, duration: 7.2, ease: "none" }, 0);
+tl.to("#escena", { scale: 1.28, x: -40, y: 30, duration: 8.4, ease: "sine.inOut" }, 7.2);
+tl.to("#escena", { scale: 1.18, x: -30, y: 135, duration: 10.4, ease: "sine.inOut" }, 15.6);
+tl.to("#brillo", { opacity: 0.6, duration: 2.2, ease: "sine.inOut", yoyo: true, repeat: 10 }, 0.4);
+polvo("m", 9, 0.5);
+// Mundo interno y cierre: veladura cálida con baja de saturación (nunca gris)
+tl.to("#veladura", { opacity: 0.38, duration: 1.6, ease: "sine.inOut" }, 21.2);
+tl.to("#satura", { opacity: 0.3, duration: 1.6, ease: "sine.inOut" }, 21.2);
+frase("#b1", 0.9, 3.6);
+frase("#b2", 3.8, 7.2);
+frase("#b3", 7.4, 9.6);
+frase("#b4", 9.8, 12.0);
+frase("#b5", 12.2, 15.6);
+frase("#b6", 15.8, 18.6);
+frase("#b7", 18.8, 21.8);
+frase("#b8", 22.0, null);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
