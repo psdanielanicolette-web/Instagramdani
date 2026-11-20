@@ -136,3 +136,8 @@ Dani is an adult woman of about 35 with natural adult proportions. Long wavy dar
 - **25 de septiembre:** primera guía de estilo, con pelo rojizo.
 - **14 de octubre:** se fija la versión oficial, con pelo borgoña oscuro, rostro mínimo, paleta crema cálida e imagen de referencia de color.
 - **Octubre:** se definen las reglas de movimiento (lento, sin giros de cabeza, gesto sincronizado con la frase) y el método imagen → animación con el agente apagado.
+
+---
+## 12. Correcciones del 20-11-2026 (Daniela)
+- **Rostro menos anime:** el rostro es adulto, ovalado y algo alargado, con la mandíbula definida, ojos pequeños y simples sin brillo. NO anime, NO manga, NO chibi, NO cara redonda. Estilo de ilustración editorial europea. Referencia: la guía de estilo del 14 de octubre.
+- **Fondos de escena:** line art donde **predomina el blanco**, con detalles mínimos de color. No es un fondo coloreado. Dani (a color) va sobre ese fondo.

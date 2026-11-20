@@ -3,7 +3,7 @@
 ## Reparto de trabajo
 | Capa | Estilo | Quién la hace |
 |---|---|---|
-| **Fondo** (pared, ventana, mesa, silla, taza, cama, cocina) | Line art con detalles pequeños de color | **Claude, en código** (SVG), calibrado con el Reel 1 |
+| **Fondo** (pared, ventana, mesa, silla, taza, cama, cocina) | Line art: **predomina el blanco**, detalles mínimos de color, nunca fondo coloreado | **Claude, en código** (SVG), calibrado con el Reel 1 |
 | **Dani** | Ilustración pintada (su propio estilo) | **Daniela, en Flow** (solo imágenes) → Claude anima los recortes |
 | Luz, polvo, vapor, persiana, texto, espiral | Sistema del maestro | Claude, en código |
 
@@ -16,7 +16,7 @@ Claude no puede generar ilustraciones nuevas de Dani: solo puede animar y compon
 - [ ] Cualquier imagen de @Dani que consideres "la oficial" (hoja de personaje).
 
 ## 2. Reglas de las imágenes de Dani
-1. **Fondo plano y uniforme**, crema liso y sin escenario: *"on a plain flat cream background, no furniture, no shadows on the background"*. Así se recorta limpio y la pongo sobre mis fondos line art.
+1. **Fondo plano y uniforme**, blanco liso y sin escenario: *"on a plain flat cream background, no furniture, no shadows on the background"*. Así se recorta limpio y la pongo sobre mis fondos line art.
    - Excepción: si Dani está sentada o acostada, el mueble va incluido (silla o cama), porque el cuerpo se apoya en él. Yo integro ese mueble al fondo.
 2. **Luz siempre desde la derecha** (la ventana del Reel 1 está a la derecha), suave y cálida.
 3. **Pares A/B idénticos:** la pose B se hace **editando la imagen A** en Flow, no generándola desde cero, para que el encuadre, el tamaño y la posición coincidan. Solo cambia la parte que se mueve (los ojos, la mano, los hombros).
