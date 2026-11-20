@@ -14,7 +14,11 @@ Si Flow devuelve a Dani con la cara redonda o con aspecto de anime:
 ```
 Adult oval, slightly long face with a defined jaw and mature features; small simple eyes without shine; NOT anime, NOT manga, NOT chibi, no round baby face; European editorial book illustration style.
 ```
-4. Si aun así sale anime, en la imagen elegida usa editar con: `Make her face more adult and oval, slightly longer, smaller eyes, less anime, keep everything else exactly the same.`
+4. Si aun así sale anime, **edita la imagen elegida** con este prompt (adjuntando la referencia con "+"):
+```
+Edit only her face, keep everything else exactly the same (hair, clothes, bed, pose, light, framing). Make it the face of an adult woman of about 35, like the attached reference image: a longer oval face with a defined jaw and narrower cheeks; small simple dark eyes with a thin upper eyelid line, no highlights, no eyelashes, no detailed iris; thin one-line eyebrows; the nose a single short stroke; the mouth a short straight neutral line, not smiling; flat skin with no blush. Empty, calm expression. Not anime, not manga.
+```
+Y si el pelo sale café o claro, agrega: `Her hair is dark burgundy, deep wine color.`
 
 ## Fondos
 Dani va siempre sobre **fondo blanco liso**. Los fondos de escena los dibuja Claude en **line art con predominio de blanco y detalles mínimos de color** (no fondo coloreado).
