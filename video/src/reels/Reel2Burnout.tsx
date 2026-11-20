@@ -27,8 +27,8 @@ const T = {
   cocina: [18.8, 23.6], // plano 4
   inserto: [23.6, 26.0], // plano 5 · respiro
   amplia: [26.0, 31.0], // plano 6 · la cámara se aleja
-  ventana: [31.0, 37.6], // plano 7 · mundo interno
-  cierre: 37.4,
+  ventana: [31.0, 44.4], // plano 7 · mundo interno + cierre sobre la escena
+  cierre: 37.6,
 };
 
 const FRASES: { texto: string; desde: number; hasta: number }[] = [
@@ -152,6 +152,7 @@ export const Reel2Burnout: React.FC = () => {
             { t: 31.0, x: 540, y: 1000, z: 1.0 },
             { t: 32.0, x: 520, y: 960, z: 1.04 },
             { t: 36.5, x: 440, y: 720, z: 1.25 },
+            { t: 44.4, x: 440, y: 700, z: 1.28 },
           ]}
         >
           <FondoVentana />

@@ -30,7 +30,7 @@ Daniela no aparece en las piezas. **@Dani** es un personaje que representa a la 
   - cuerpo de 25-35 s;
   - respiro sin texto;
   - mundo interno;
-  - cierre de 7 s: fundido a crema, espiral, punto que late y frase en borgoña.
+  - cierre de ≈7 s **sobre la última escena** (sin espiral): la luz baja con una veladura cálida y entra la frase en borgoña.
   - Total: 40-45 s.
 - **Texto:**
   - Fraunces 600, 76 px, #1A1A1A, alineado a la izquierda, margen 92 px, top 150 px, ancho 800 px, interlineado 1,4.
@@ -39,12 +39,13 @@ Daniela no aparece en las piezas. **@Dani** es un personaje que representa a la 
 - **Cámara:** ligada a lo que dice la frase, zoom de 1,3× como máximo, siempre con una deriva leve.
 - **Contexto en movimiento:** siempre al menos dos elementos (polvo en la luz, luz que respira, vapor en line art, luz que viaja).
 - **Mundo interno:** veladura cálida con baja de saturación. Nunca gris.
-- **Fondos:** line art donde **predomina el blanco**, con detalles mínimos de color. Los dibuja Claude en SVG (`video/src/reel/Escena.tsx`).
+- **Fondos:** escenas completas de Flow en el estilo del Reel 1 (predomina el blanco y el crema, contorno entintado, luz cálida de ventana con cortina). Daniela las genera editando las poses de Dani (`flow/REEL2_ESCENAS_COPIAR_Y_PEGAR.md`). Claude anima encima la cortina, la luz, el vapor y el polvo. Los fondos SVG de `Escena.tsx` quedan solo como respaldo.
 - **Dani:**
   - Las imágenes vienen de Flow, solo imágenes, nunca video. Se recortan con `python3 tools/recortar_dani.py assets/dani/rN video/public/dani`.
   - Los gestos se hacen con fundidos entre las poses A y B, que deben estar alineadas.
   - Rostro oficial: `assets/referencias/dani_ROSTRO_OFICIAL.webp`. Es redondo y suave, adulto, con ojos pequeños; no anime.
-- **Entrega:** 1080×1920, 30 fps, H.264, **sin audio**. Siempre una versión de 720p para revisión y otra final.
+- **Voz en off:** la voz de Daniela, grabada con el celular (`guiones/GRABAR_VOZ_EN_OFF.md`). Se limpia, se transcribe y las frases en pantalla se sincronizan con la voz.
+- **Entrega:** 1080×1920, 30 fps, H.264, **con la voz en off de Daniela** (sin música: la música se agrega en Instagram). Mientras no haya voz, va sin audio. Siempre una versión de 720p para revisión y otra final.
   - Revisión: `cd video && npm run r2:revision`
   - Final: `cd video && npm run r2:final`
 - **Prompts de Flow para copiar y pegar:** `flow/`. El agente de Flow va apagado, con Nano Banana 2.1 en 9:16, la variante B se hace editando la imagen A, y siempre se adjunta el rostro oficial.
