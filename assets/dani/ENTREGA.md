@@ -33,7 +33,17 @@ Claude no puede generar ilustraciones nuevas de Dani: solo puede animar y compon
 | De pie de perfil, taza en ambas manos | ojos abiertos / párpados pesados |
 | Primer plano del rostro, 3/4 | neutro / ojos cerrados / sonrisa suave |
 
-### Reel 2 · Burnout (pijama crema los planos 1-2; camisa de lino beige y pantalón negro del 3 al 7)
+### Reel 2 · Burnout · LISTA MÍNIMA (9 imágenes, 0 videos)
+Dani sobre fondo crema liso; los fondos los dibuja Claude. La misma pose de pie con taza sirve para los planos 6 y 7. El inserto (plano 5) es un recorte del plano 4.
+| # | Archivo | Pose | A/B |
+|---|---|---|---|
+| 1 | r2_cama-lado.png | Duerme de lado en la cama (cama incluida), pijama crema | solo A (la respiración la anima Claude) |
+| 2 | r2_boca-arriba_ojos-cerrados.png / _ojos-abiertos.png | Primer plano acostada boca arriba, pelo sobre la almohada | A cerrados · B abiertos |
+| 3 | r2_borde-cama_hombros-arriba.png / _hombros-abajo.png | Sentada al borde de la cama (cama incluida), camisa de lino beige y pantalón negro, manos en las rodillas | A · B |
+| 4 | r2_cocina_jarra-arriba.png / _jarra-inclinada.png | De pie de perfil sirviendo café sobre un mesón (mesón incluido) | A · B |
+| 5 | r2_de-pie-taza_ojos-abiertos.png / _parpados-pesados.png | De pie de perfil, taza en ambas manos, mismo vestuario | A · B |
+
+### Reel 2 · Burnout (detalle por plano) (pijama crema los planos 1-2; camisa de lino beige y pantalón negro del 3 al 7)
 | Plano | A | B |
 |---|---|---|
 | 1 · Duerme de lado en la cama | respiración arriba | respiración abajo (hombro apenas más bajo) |
