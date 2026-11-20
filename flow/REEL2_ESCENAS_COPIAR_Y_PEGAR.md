@@ -15,6 +15,7 @@ Cada escena se arma **editando la imagen de Dani que ya tienes** y agregándole 
 > - **Line art blanco con líneas negras.** El fondo es casi todo blanco.
 > - **Color solo en algunos detalles** (madera, marcos de puerta y ventana, una planta): **como máximo el 20 % del fondo**.
 > - **Dani siempre va a todo color.**
+> - **Fondo mínimo:** pocos elementos (ventana con cortina, la línea del piso y el mueble de la escena) y mucho blanco vacío, sin adornos.
 > - **Siempre hay una ventana con cortina de lino**, porque Claude anima la cortina y la luz.
 
 ---
@@ -24,7 +25,7 @@ Cada escena se arma **editando la imagen de Dani que ya tienes** y agregándole 
 
 **ESCENA** (edita la imagen A):
 ```
-Keep @Dani and the bed exactly the same — face, hair, pajamas, pose, position and size, bed and sheets unchanged. Replace the plain background with a calm, bright bedroom seen from above: a floor drawn with thin lines, a simple rug drawn in line art under the bed, a small bedside table with a lamp, and a window on the right side with a sheer linen curtain; soft afternoon light comes through the window, suggested by a few thin diagonal lines across the floor. BACKGROUND STYLE: white line-art illustration — clean thin black ink lines on a white background; the background is mostly pure white and uncolored. Only a few small details have soft flat color (wooden furniture, window and door frames, a plant): color covers no more than 20% of the background. No colored walls, no colored floor fills, no painted gradients. Light from the window is suggested with a very soft, almost white warm glow. @Dani stays in full color, exactly as in the original image. The upper third of the frame is empty white floor. No text, no steam.
+Keep @Dani and the bed exactly the same — face, hair, pajamas, pose, position and size, bed and sheets unchanged. Replace the plain background with a very simple bedroom seen from above: only a few thin floor lines and a window on the right side with a sheer linen curtain; soft afternoon light comes through the window, suggested by a few thin diagonal lines across the floor. MINIMAL BACKGROUND: very few elements, lots of empty white space, no decoration, no extra objects. BACKGROUND STYLE: white line-art illustration — clean thin black ink lines on a white background; the background is mostly pure white and uncolored. Only a few small details have soft flat color (wooden furniture, window frame): color covers no more than 20% of the background. No colored walls, no colored floor fills, no painted gradients. Light from the window is suggested with a very soft, almost white warm glow. @Dani stays in full color, exactly as in the original image. The upper third of the frame is empty white floor. No text, no steam.
 ```
 **B · ojos entreabiertos** (edita la ESCENA):
 ```
@@ -43,7 +44,7 @@ Archivos: `r2e_cama_ojos-cerrados.png` · `r2e_cama_ojos-entreabiertos.png` · `
 
 **ESCENA:**
 ```
-Keep @Dani and the bed exactly the same — face, hair, beige linen shirt, black trousers, pose, position and size. Replace the plain background with a bright bedroom seen from the side: a white wall, a floor drawn with thin lines with a thin baseboard, and a tall window on the right with a sheer linen curtain; soft morning light enters, suggested by a few thin diagonal lines. A small plant on the windowsill. BACKGROUND STYLE: white line-art illustration — clean thin black ink lines on a white background; the background is mostly pure white and uncolored. Only a few small details have soft flat color (wooden furniture, window and door frames, a plant): color covers no more than 20% of the background. No colored walls, no colored floor fills, no painted gradients. Light from the window is suggested with a very soft, almost white warm glow. @Dani stays in full color, exactly as in the original image. The upper third of the frame is empty white wall. No text, no steam.
+Keep @Dani and the bed exactly the same — face, hair, beige linen shirt, black trousers, pose, position and size. Replace the plain background with a very simple bedroom seen from the side: a white wall, one thin floor line, and a tall window on the right with a sheer linen curtain; soft morning light enters, suggested by a few thin diagonal lines. MINIMAL BACKGROUND: very few elements, lots of empty white space, no decoration, no extra objects. BACKGROUND STYLE: white line-art illustration — clean thin black ink lines on a white background; the background is mostly pure white and uncolored. Only a few small details have soft flat color (wooden furniture, window frame): color covers no more than 20% of the background. No colored walls, no colored floor fills, no painted gradients. Light from the window is suggested with a very soft, almost white warm glow. @Dani stays in full color, exactly as in the original image. The upper third of the frame is empty white wall. No text, no steam.
 ```
 **B · hombros caídos** (edita la ESCENA):
 ```
@@ -58,7 +59,7 @@ Archivos: `r2e_borde-cama_hombros-arriba.png` · `r2e_borde-cama_hombros-abajo.p
 
 **ESCENA:**
 ```
-Keep @Dani, the coffee pot, the cup and the wooden counter exactly the same — face, hair, clothes, pose, position and size. Replace the plain wall with a small bright kitchen: a white wall with a simple open shelf holding a few ceramic jars, and a window on the right above the counter with a sheer linen curtain; soft morning light, suggested by a few thin diagonal lines. Redraw the floor as thin lines on white. BACKGROUND STYLE: white line-art illustration — clean thin black ink lines on a white background; the background is mostly pure white and uncolored. Only a few small details have soft flat color (wooden furniture, window and door frames, a plant): color covers no more than 20% of the background. No colored walls, no colored floor fills, no painted gradients. Light from the window is suggested with a very soft, almost white warm glow. @Dani stays in full color, exactly as in the original image. The upper third of the frame is empty white wall. No text, no steam.
+Keep @Dani, the coffee pot, the cup and the wooden counter exactly the same — face, hair, clothes, pose, position and size. Replace the plain wall with a very simple kitchen: a white wall and a window on the right above the counter with a sheer linen curtain; soft morning light, suggested by a few thin diagonal lines. Redraw the floor as thin lines on white. MINIMAL BACKGROUND: very few elements, lots of empty white space, no decoration, no extra objects. BACKGROUND STYLE: white line-art illustration — clean thin black ink lines on a white background; the background is mostly pure white and uncolored. Only a few small details have soft flat color (wooden furniture, window frame): color covers no more than 20% of the background. No colored walls, no colored floor fills, no painted gradients. Light from the window is suggested with a very soft, almost white warm glow. @Dani stays in full color, exactly as in the original image. The upper third of the frame is empty white wall. No text, no steam.
 ```
 **B · jarra inclinada** (edita la ESCENA):
 ```
@@ -73,7 +74,7 @@ Archivos: `r2e_cocina_jarra-arriba.png` · `r2e_cocina_jarra-inclinada.png`
 
 **ESCENA:**
 ```
-Keep @Dani exactly the same — face, hair, beige linen shirt, black trousers, the cup in her hands, pose, position and size. Replace the plain background with a quiet corner of her home: a white wall and a tall window on the right with a sheer linen curtain, a floor drawn with thin lines; soft light comes through the window onto her face. BACKGROUND STYLE: white line-art illustration — clean thin black ink lines on a white background; the background is mostly pure white and uncolored. Only a few small details have soft flat color (wooden furniture, window and door frames, a plant): color covers no more than 20% of the background. No colored walls, no colored floor fills, no painted gradients. Light from the window is suggested with a very soft, almost white warm glow. @Dani stays in full color, exactly as in the original image. The upper third of the frame is empty white wall. No text, no steam.
+Keep @Dani exactly the same — face, hair, beige linen shirt, black trousers, the cup in her hands, pose, position and size. Replace the plain background with a very simple corner of her home: a white wall, one thin floor line and a tall window on the right with a sheer linen curtain; soft light comes through the window onto her face. MINIMAL BACKGROUND: very few elements, lots of empty white space, no decoration, no extra objects. BACKGROUND STYLE: white line-art illustration — clean thin black ink lines on a white background; the background is mostly pure white and uncolored. Only a few small details have soft flat color (wooden furniture, window frame): color covers no more than 20% of the background. No colored walls, no colored floor fills, no painted gradients. Light from the window is suggested with a very soft, almost white warm glow. @Dani stays in full color, exactly as in the original image. The upper third of the frame is empty white wall. No text, no steam.
 ```
 **B · párpados pesados** (edita la ESCENA):
 ```
@@ -86,7 +87,7 @@ Archivos: `r2e_ventana_ojos-abiertos.png` · `r2e_ventana_parpados-pesados.png`
 ## ESCENA 5 · Cocina amplia, vacía (plano 6: ahí Claude pone a Dani pequeña)
 Adjunta con "+" **la ESCENA 3 terminada**.
 ```
-The same kitchen as the attached image, seen from further back in a wide shot: the whole counter, the shelf, the window with the sheer linen curtain, more floor and wall. Nobody in the scene, empty room. Same white line-art background style: thin black lines on white, color only on a few wooden details (max 20% of the background). The upper third of the frame is empty white wall. No text, no steam.
+The same kitchen as the attached image, seen from further back in a wide shot: the whole counter, the window with the sheer linen curtain, more white wall. Nobody in the scene, empty room. Same white line-art background style: thin black lines on white, color only on a few wooden details (max 20% of the background). The upper third of the frame is empty white wall. No text, no steam.
 ```
 Archivo: `r2e_cocina-amplia_vacia.png`
 
