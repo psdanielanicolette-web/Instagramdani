@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Fraunces";
+        font-weight: 600;
+        src: url("assets/fonts/fraunces-latin-600-normal.woff2") format("woff2");
+      }
+      :root {
+        --fondo: #fffefe;
+        --tinta: #1a1a1a;
+        --borgona: #7d4f6a;
+        --veladura: #eed3bb;
+        --luz: #fff3e2;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--fondo); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--fondo); }
+
+      /* Cámara: la escena completa, con deriva leve (máx. 1,3×) */
+      #camara { position: absolute; inset: 0; overflow: hidden; }
+      #escena { position: absolute; inset: 0; width: 1080px; height: 1920px; object-fit: cover; transform-origin: 70% 40%; }
+
+      /* Contexto en movimiento: luz que respira desde la ventana + polvo en la luz */
+      #luz {
+        position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(ellipse 520px 760px at 88% 22%, rgba(255, 236, 205, 0.85), rgba(255, 236, 205, 0) 70%);
+        mix-blend-mode: screen; opacity: 0.35;
+      }
+      #polvo { position: absolute; inset: 0; pointer-events: none; }
+      .mota { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 244, 222, 0.95); box-shadow: 0 0 8px rgba(255, 230, 190, 0.9); }
+
+      /* Mundo interno / cierre: veladura cálida (nunca gris) */
+      #veladura { position: absolute; inset: 0; background: var(--veladura); mix-blend-mode: multiply; opacity: 0; }
+      #bajaluz { position: absolute; inset: 0; background: #fff8ef; mix-blend-mode: saturation; opacity: 0; }
+
+      /* Texto de marca: Fraunces 600, 76 px, izquierda, margen 92, top 150, ancho 800, interlineado 1,4 */
+      .frase {
+        position: absolute; left: 92px; top: 150px; width: 800px;
+        font-family: "Fraunces", serif; font-weight: 600; font-size: 76px; line-height: 1.4;
+        color: var(--tinta); text-align: left;
+      }
+      .frase .p { display: inline-block; opacity: 0; }
+      #cierre { top: 330px; color: var(--borgona); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="12" data-width="1080" data-height="1920">
+      <div id="camara" class="clip" data-start="0" data-duration="12" data-track-index="0">
+        <img id="escena" src="assets/escena-cama.png" alt="Dani dormida en el dormitorio" />
+        <div id="luz"></div>
+        <div id="polvo">
+          <span class="mota" id="m1" style="left: 770px; top: 420px"></span>
+          <span class="mota" id="m2" style="left: 860px; top: 610px"></span>
+          <span class="mota" id="m3" style="left: 690px; top: 760px"></span>
+          <span class="mota" id="m4" style="left: 940px; top: 880px"></span>
+          <span class="mota" id="m5" style="left: 820px; top: 1010px"></span>
+          <span class="mota" id="m6" style="left: 720px; top: 540px"></span>
+          <span class="mota" id="m7" style="left: 990px; top: 480px"></span>
+          <span class="mota" id="m8" style="left: 640px; top: 950px"></span>
+          <span class="mota" id="m9" style="left: 900px; top: 1150px"></span>
+          <span class="mota" id="m10" style="left: 760px; top: 1240px"></span>
+        </div>
+        <div id="veladura"></div>
+        <div id="bajaluz"></div>
+      </div>
+
+      <div id="f1" class="frase clip" data-start="0" data-duration="5.2" data-track-index="1">
+        <span class="p">Quizá</span> <span class="p">no</span> <span class="p">necesito</span>
+        <span class="p">descansar</span> <span class="p">más.</span>
+      </div>
+      <div id="f2" class="frase clip" data-start="5.2" data-duration="3.8" data-track-index="1">
+        <span class="p">Quizá</span> <span class="p">esto</span> <span class="p">que</span> <span class="p">cargo</span>
+        <span class="p">tiene</span> <span class="p">otra</span> <span class="p">forma,</span>
+      </div>
+      <div id="cierre" class="frase clip" data-start="9" data-duration="3" data-track-index="1">
+        <span class="p">y</span> <span class="p">todavía</span> <span class="p">no</span> <span class="p">tiene</span>
+        <span class="p">nombre.</span>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // Cámara ligada a la frase: se acerca despacio a Dani, deriva leve, nunca más de 1,3×
+      tl.fromTo("#escena", { scale: 1.04, x: 0, y: 0 }, { scale: 1.16, x: -18, y: 10, duration: 12, ease: "none" }, 0);
+
+      // Luz que respira (finito, sin repeat infinito)
+      tl.to("#luz", { opacity: 0.6, duration: 2, ease: "sine.inOut", yoyo: true, repeat: 5 }, 0);
+
+      // Polvo flotando en la luz: trayectorias fijas, deterministas
+      const derivas = [
+        [-30, -60], [24, -80], [-18, -50], [30, -70], [-26, -90],
+        [16, -40], [-20, -65], [28, -55], [-14, -75], [22, -85],
+      ];
+      derivas.forEach(([dx, dy], i) => {
+        const id = "#m" + (i + 1);
+        tl.fromTo(id, { opacity: 0, x: 0, y: 0 }, { opacity: 0.9, duration: 1.5, ease: "sine.out" }, 0.2 * i);
+        tl.to(id, { x: dx, y: dy, duration: 11.5 - 0.2 * i, ease: "sine.inOut" }, 0.2 * i);
+      });
+
+      // Texto palabra por palabra: 0,12 s entre palabras, 0,65 s de entrada, subida de 18 px; sale con fundido de 0,5 s
+      function frase(sel, inicio, fin) {
+        tl.fromTo(sel + " .p", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.65, stagger: 0.12, ease: "power2.out" }, inicio);
+        if (fin !== null) tl.to(sel + " .p", { opacity: 0, duration: 0.5, ease: "power1.in" }, fin);
+      }
+      frase("#f1", 0.9, 4.6);
+      frase("#f2", 5.4, 8.4);
+
+      // Cierre sobre la última escena: la luz baja con una veladura cálida y entra la frase en borgoña
+      tl.to("#veladura", { opacity: 0.38, duration: 1.4, ease: "sine.inOut" }, 8.6);
+      tl.to("#bajaluz", { opacity: 0.35, duration: 1.4, ease: "sine.inOut" }, 8.6);
+      frase("#cierre", 9.3, null);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
