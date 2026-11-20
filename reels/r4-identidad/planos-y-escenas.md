@@ -8,6 +8,9 @@
 **El contraste del eje en el montaje:** hay movimiento rápido mientras enumera (manos, teléfono, agenda) y quietud total en la pausa.
 
 ## 2. Guion en frases cortas
+> ⚠️ **El guion de esta sección quedó REEMPLAZADO** por la versión validada con Teo: ver `guiones/reels-2-3-4-validados.md` (texto y división en pantallas). Los planos, gestos e imágenes de abajo siguen vigentes.
+
+
 | # | Frase en pantalla | Fuente (hoja) |
 |---|---|---|
 | 1 | Me preguntan qué quiero yo. | Gancho |

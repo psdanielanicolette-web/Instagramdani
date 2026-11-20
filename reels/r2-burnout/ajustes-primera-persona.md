@@ -1,7 +1,10 @@
 # Reel 2 · Burnout · Ajustes antes de Flow
 *El plan de planos y los prompts de Flow ya existen (documento "Reel 2 · Burnout · Plan de planos y escenas") y **no cambian**. Este documento solo propone el texto en primera persona y dos mejoras.*
 
-## 1. Texto en pantalla: original vs. primera persona
+## 1. Texto en pantalla
+> ⚠️ **El guion de esta sección quedó REEMPLAZADO** por la versión validada con Teo: ver `guiones/reels-2-3-4-validados.md` (texto y división en pantallas). Los planos, gestos e imágenes de abajo siguen vigentes.
+
+: original vs. primera persona
 | # | Original (2.ª persona) | Primera persona (propuesta) | Plano |
 |---|---|---|---|
 | 1 | Dormiste todo el fin de semana. | Dormí todo el fin de semana. | 1 · Cama |

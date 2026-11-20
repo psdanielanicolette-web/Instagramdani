@@ -8,6 +8,9 @@ La Ansiedad fue una quietud en guardia y el Burnout, funcionar sin estar. La Sol
 **El contraste del eje en el montaje:** todo alrededor se mueve y conversa; Dani responde a tiempo, pero su mirada se queda un instante más en otra parte.
 
 ## 2. Guion en frases cortas
+> ⚠️ **El guion de esta sección quedó REEMPLAZADO** por la versión validada con Teo: ver `guiones/reels-2-3-4-validados.md` (texto y división en pantallas). Los planos, gestos e imágenes de abajo siguen vigentes.
+
+
 | # | Frase en pantalla | Fuente (hoja) |
 |---|---|---|
 | 1 | En la mesa todos hablan. | Gancho |
