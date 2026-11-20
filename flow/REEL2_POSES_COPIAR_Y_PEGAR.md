@@ -39,14 +39,17 @@ Dani va siempre sobre **fondo blanco liso**. Los fondos de escena los dibuja Cla
 
 ---
 
-## POSE 2 · Acostada boca arriba (primer plano)
+## POSE 2 · Acostada boca arriba (primer plano) · v2: cabeza en 3/4
+> La v1 (de frente desde arriba) dejaba el rostro mínimo plano y poco favorecedor. La hoja de personaje pide la cabeza **de perfil o en 3/4**, como en el Reel 1, que fue aprobado.
+> Adjunta con "+" **la escena del Reel 1** (`assets/referencias/r1_escena_sentada_mano-pecho.jpg`) como referencia de rostro.
+
 **Archivo A:** `r2_boca-arriba_ojos-cerrados.png`
 ```
-Close-up. @Dani lies on her back in bed in cream cotton pajamas, her wavy dark burgundy hair spread on a cream pillow, eyes gently closed as thin curves, calm expression. Seen from above. Soft pale morning light coming from the right. The upper third of the frame is empty white pillow. No text. Her face is an adult oval face, slightly long, with a defined jaw and mature features; small simple eyes (no big eyes, no shine in the eyes), thin one-line eyebrows, a single-stroke nose, a short line mouth. NOT anime, NOT manga, NOT chibi, NOT cartoon, no round baby face. European editorial illustration style, like a book or magazine illustration, clean ink outline. Same face, hair and illustration style as the attached reference image.
+Close-up, seen slightly from the side. @Dani lies on her back in bed in cream cotton pajamas, her head resting on a white pillow and turned slightly toward the window on the right, in three-quarter view, like her face in the attached reference image. Wavy dark burgundy hair, a deep wine color, spread on the pillow. Eyes gently closed as thin curves. Soft, gentle and pretty adult face, same face as in the attached reference: delicate oval face, small simple eyes, thin eyebrows, small nose, short calm mouth, flat skin. Calm, quiet expression. Soft pale morning light from the right. The upper third of the frame is empty white wall. No text. Semi-realistic editorial illustration, clean ink outline, flat colors with soft two-step shading. Not anime.
 ```
 **Archivo B:** `r2_boca-arriba_ojos-abiertos.png` (editar la imagen A)
 ```
-Keep everything exactly the same — framing, size, position, hair, pajamas, light, and exactly the same face (adult, oval, not anime) — but her eyes are now open, looking up at the ceiling, empty calm gaze, not sad.
+Keep everything exactly the same — face, head angle, hair, pajamas, pillow, light, framing — but her eyes are now softly open, gazing at the ceiling, calm and absent, not sad.
 ```
 
 ---
