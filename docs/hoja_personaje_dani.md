@@ -139,5 +139,6 @@ Dani is an adult woman of about 35 with natural adult proportions. Long wavy dar
 
 ---
 ## 12. Correcciones del 20-11-2026 (Daniela)
-- **Rostro menos anime:** el rostro es adulto, ovalado y algo alargado, con la mandíbula definida, ojos pequeños y simples sin brillo. NO anime, NO manga, NO chibi, NO cara redonda. Estilo de ilustración editorial europea. Referencia: la guía de estilo del 14 de octubre.
+- **Rostro (corregido dos veces):** **carita redonda y suave**, con mejillas llenas y mentón pequeño redondeado; **nunca mentón marcado ni mandíbula definida**. Lo que se evita del anime son los **ojos grandes con brillo**, las pestañas y la sonrisa dulce: los ojos van pequeños y simples. Referencia: la escena del Reel 1 y la guía de estilo del 14 de octubre.
+- **Cabeza en 3/4 o de perfil** en los primeros planos: el rostro de frente desde arriba no la favorece.
 - **Fondos de escena:** line art donde **predomina el blanco**, con detalles mínimos de color. No es un fondo coloreado. Dani (a color) va sobre ese fondo.
