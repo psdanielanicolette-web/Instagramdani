@@ -142,3 +142,5 @@ Dani is an adult woman of about 35 with natural adult proportions. Long wavy dar
 - **Rostro (corregido dos veces):** **carita redonda y suave**, con mejillas llenas y mentón pequeño redondeado; **nunca mentón marcado ni mandíbula definida**. Lo que se evita del anime son los **ojos grandes con brillo**, las pestañas y la sonrisa dulce: los ojos van pequeños y simples. Referencia: la escena del Reel 1 y la guía de estilo del 14 de octubre.
 - **Cabeza en 3/4 o de perfil** en los primeros planos: el rostro de frente desde arriba no la favorece.
 - **Fondos de escena:** line art donde **predomina el blanco**, con detalles mínimos de color. No es un fondo coloreado. Dani (a color) va sobre ese fondo.
+
+- **Rostro oficial elegido (20-11-2026):** `assets/referencias/dani_ROSTRO_OFICIAL.webp`. Se adjunta en Flow en todas las poses. Es solo referencia de rostro; esa pose no se usa en el contenido.
