@@ -144,3 +144,4 @@ Dani is an adult woman of about 35 with natural adult proportions. Long wavy dar
 - **Fondos de escena:** line art donde **predomina el blanco**, con detalles mínimos de color. No es un fondo coloreado. Dani (a color) va sobre ese fondo.
 
 - **Rostro oficial elegido (20-11-2026):** `assets/referencias/dani_ROSTRO_OFICIAL.webp`. Se adjunta en Flow en todas las poses. Es solo referencia de rostro; esa pose no se usa en el contenido.
+- **Fondos (regla del 20-11-2026):** line art blanco con líneas negras; el color, solo en detalles (madera, marcos), no supera el 20 % del fondo. Dani va siempre a todo color.
