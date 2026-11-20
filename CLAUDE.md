@@ -39,7 +39,7 @@ Daniela no aparece en las piezas. **@Dani** es un personaje que representa a la 
 - **Cámara:** ligada a lo que dice la frase, zoom de 1,3× como máximo, siempre con una deriva leve.
 - **Contexto en movimiento:** siempre al menos dos elementos (polvo en la luz, luz que respira, vapor en line art, luz que viaja).
 - **Mundo interno:** veladura cálida con baja de saturación. Nunca gris.
-- **Fondos:** escenas completas de Flow en **line art blanco con líneas negras**. Color solo en detalles (madera, marcos de puerta y ventana, una planta), **como máximo el 20 % del fondo**. **Dani siempre a todo color.** Siempre hay una ventana con cortina. Daniela las genera editando las poses de Dani (`flow/REEL2_ESCENAS_COPIAR_Y_PEGAR.md`). Claude anima encima la cortina, la luz, el vapor y el polvo. Los fondos SVG de `Escena.tsx` quedan solo como respaldo.
+- **Fondos:** escenas completas de Flow en **line art blanco con líneas negras**. Color solo en detalles (madera, marcos de puerta y ventana, una planta), **como máximo el 20 % del fondo**. **Dani siempre a todo color y es la única con detalle**: sábanas, muebles, cortina y piso son planos, con 2 o 3 pliegues como máximo y sin texturas. Siempre hay una ventana con cortina. Daniela las genera editando las poses de Dani (`flow/REEL2_ESCENAS_COPIAR_Y_PEGAR.md`). Claude anima encima la cortina, la luz, el vapor y el polvo. Los fondos SVG de `Escena.tsx` quedan solo como respaldo.
 - **Dani:**
   - Las imágenes vienen de Flow, solo imágenes, nunca video. Se recortan con `python3 tools/recortar_dani.py assets/dani/rN video/public/dani`.
   - Los gestos se hacen con fundidos entre las poses A y B, que deben estar alineadas.
