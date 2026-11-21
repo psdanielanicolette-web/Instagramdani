@@ -197,7 +197,7 @@ QA (cuadros que hay que revisar)
 ## 3b. Molde del Reel 1 (de `docs/plantilla_ilustracion_reel1.md`)
 Lo que se replica en cada reel, adaptado a HyperFrames:
 - **Kit por lugar:** una **Imagen A** (escena base) y una **Imagen B** (el gesto), con la misma escena y la misma ropa, más una **Imagen C** opcional para el **respiro** (un primer plano distinto, por ejemplo los ojos cerrados). En el Reel 1 ese primer plano fue el pasaje más fuerte.
-- **Composición dentro del cuadrado:** Dani en los dos tercios inferiores del cuadro; la ventana y su luz a un lado; **un objeto de apoyo vivo** (la taza con vapor, la cortina, la planta).
+- **Composición:** tercio superior en blanco para el texto; Dani en los dos tercios inferiores; la ventana y su luz a un lado; **un objeto de apoyo vivo** (la taza con vapor, la cortina, la planta).
 - **Ritmo del texto (medido en el Reel 1):** cada frase dura entre 2,2 y 3,6 s en pantalla, con 0,2-0,3 s entre una frase y la siguiente; el respiro dura alrededor de 4 s.
 - **Patrón de cámara del Reel 1** (una escena, 9 frases): general con deriva → se acerca al objeto → al cuerpo (1,3×) → se queda → *respiro con otro plano* → se abre a la ventana → leve acercamiento → al cuerpo → sube al rostro mientras la luz baja. Nunca dos frases seguidas con el mismo movimiento.
 - **Lo que NO viene de Flow y hace el código:** el ambiente vivo, la intro, el texto y la cámara.
