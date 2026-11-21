@@ -1,6 +1,6 @@
 # HyperFrames · Prompt maestro de los Reels de Dani
 *Todo el sistema gráfico de los reels convertido en números, para que HyperFrames lo reproduzca igual que las referencias.*
-*Fuentes: el Documento maestro de Reels, `fichas/FICHA_GUION_REELS_MES1.md`, `docs/hoja_personaje_dani.md` y `CLAUDE.md`.*
+*Fuentes: el Documento maestro de Reels, el Sistema visual, el Plan de planos del Reel 2, la hoja de personaje, los 4 pilares y el Significado de las 12 portadas (Teo), el Documento de Marca, la Identidad visual, los guiones reformulados con Teo y las decisiones de Daniela en esta sesión. La trazabilidad completa está en la sección 6.*
 
 ---
 
@@ -47,8 +47,8 @@ TIME:    40-45 s = 1200-1350 frames. Sin BPM (no hay música).
 
 LOOK (el medio: ilustración editorial a línea sobre papel blanco + personaje a color)
   MARCO:   la escena va DENTRO de un cuadrado con bordes blancos; el texto va FUERA del cuadrado.
-           Página #FFFEFE. Cuadrado provisional de 960 x 960 px en x = 60, y = 600
-           (margen blanco de 60 px a los lados). Se ajusta al reel de referencia de Daniela.
+           Página #FFFEFE. Cuadrado de 960 x 960 px en x = 60, y = 600
+           (margen blanco de 60 px a los lados). ✅ Resuelto con Daniela el 21-11.
            La cámara (zoom, desplazamiento) se mueve DENTRO del cuadrado (overflow hidden):
            el marco y el texto no se mueven.
   ground:  el fondo de escena viene en las imágenes de Flow: line art negro de LÍNEA NORMAL
@@ -71,6 +71,19 @@ LOOK (el medio: ilustración editorial a línea sobre papel blanco + personaje a
   luz:     ventana a la DERECHA. Haz cálido #FFF4E2 en multiply, opacidad 0.55-0.70,
            desenfoque 18 px. Sin viñeta. Sin grano. Sin glow.
 
+DANI (hoja de personaje)
+  - Mujer de ~35 años que representa a la mujer del nicho. NO es Daniela.
+  - Rostro oficial: assets/referencias/dani_ROSTRO_OFICIAL.webp (redondo y suave, adulto, ojos
+    pequeños sin brillo, cejas de una línea, nariz de un trazo, boca corta, piel plana sin rubor).
+    No anime. Pelo largo ondulado borgoña oscuro #5A3040, hasta media espalda.
+  - Emoción contenida: quietud con algo por debajo. Nunca drama, llanto, víctima ni sexualización.
+  - Cabeza de perfil o en 3/4, sin giros. Movimiento lento.
+  - Gestos de la serie: mano al pecho (insignia), ojos que se cierran o abren despacio, hombros que
+    caen al exhalar, manos quietas en las rodillas o alrededor de una taza, mirada fija y ausente.
+  - Ropa por reel (no cambia dentro del reel): R1 suéter oliva, jeans y zapatillas negras · R2 pijama
+    crema y luego camisa de lino beige con pantalón negro · R3 suéter de punto beige · R4 ropa base.
+  - Otras personas: el mismo estilo, rostro mínimo, de espaldas o parcialmente fuera de cuadro.
+
 OBJECTS (lo que debe reconocerse sin rótulo)
   - Dani (personaje, ~35 años, rostro redondo y suave, adulto, ojos pequeños, pelo largo
     ondulado borgoña). Siempre de perfil o en 3/4. Nunca giros de cabeza.
@@ -88,6 +101,16 @@ MOTION (curvas por rol; duraciones en frames a 30 fps)
                  Zoom máximo 1,30. Ease power2.inOut. Movimientos
                  de 3-6 s. Deriva leve permanente: x = 6·sin(0,7·t), y = 3,6·cos(0,53·t) px.
                  Nunca un corte de zoom ni un salto.
+  cámara ligada a la frase (Documento maestro):
+                 tiempo, lugar o situación → plano general con deriva suave hacia la luz o el espacio ·
+                 lo quieto o en orden → se acerca a los objetos en reposo ·
+                 una parte del cuerpo → se acerca a esa parte y se queda ·
+                 el mundo de afuera o la rutina → se abre y se aleja hacia la ventana o el entorno ·
+                 ausencia, "no estar" → se aleja despacio y Dani queda pequeña ·
+                 lo interno → sube lentamente al rostro.
+  sincronía:     la frase que nombra un gesto entra JUSTO cuando Dani lo hace
+                 (si dice "pecho", la mano va al pecho).
+  respiro:       al menos un pasaje de 2-5 s sin texto entre las dos mitades del guion.
   cambio de pose A→B: fundido cruzado entre imágenes alineadas · 0,5 s (15 f) · sine.inOut
                  (hombros o exhalación: 0,9 s).
   respiración:   escala Y de Dani 1 → 1,0045 → 1 · período 4,2 s · origen en los pies.
@@ -134,6 +157,12 @@ PERMITIDO POR LA MARCA (no son defaults: son la identidad)
   - elementos vivos reales de la escena (cortina, planta, vapor, luz, vela): nunca decorativos.
   - frame 0 en blanco con la persiana: es la firma de apertura aprobada; la portada se hace aparte.
 
+ENTREGA
+  - 1080 x 1920, 30 fps, H.264. Dos archivos: uno de revisión en 720p y uno final.
+  - Audio: solo la voz en off de Daniela, limpia y sincronizada (las frases entran cuando ella las dice).
+    Sin voz grabada, el video va sin pista de audio. La música la agrega Daniela en Instagram.
+  - La portada NO se hace aquí: se diseña aparte, en el lienzo del feed.
+
 BANNED (además de los defaults de HyperFrames)
   - música, efectos de sonido, subtítulos automáticos quemados.
   - cualquier color fuera de la paleta; borgoña fuera de la frase de cierre.
@@ -141,7 +170,10 @@ BANNED (además de los defaults de HyperFrames)
   - dibujar, regenerar o deformar a Dani; giros de cabeza; gestos bruscos; risa abierta; llanto.
   - texto centrado; texto que se mueve mientras se lee; tamaños de texto distintos a 76 px.
   - zoom > 1,30; el mismo movimiento de cámara en dos frases seguidas.
-  - la espiral del cierre (descartada); la sombra de hojas en la pared (descartada).
+  - DESCARTADOS en la producción del Reel 1 (no repetir): la espiral del cierre; la sombra de hojas
+    en la pared (se veía pegada); el zoom parecido en todas las frases; la intro larga con la ventana vista
+    desde afuera; la intro con beige o borgoña; el obturador que corta la persiana; el punto borgoña;
+    el texto pequeño en una segunda frase; las imágenes en GIF.
   - iconografía de salud mental (cerebros, nudos, nubes negras, espejos rotos, máscaras,
     personas ovilladas); una mujer sola en el Reel de Soledad.
   - llamados a la acción, logos, etiquetas, bordes de marco.
@@ -160,6 +192,12 @@ QA (cuadros que hay que revisar)
 ---
 
 ## 4. Planos por reel (para el bloque SHOTS del SPEC)
+
+> **Sentido por reel (pilares de Teo):**
+> - **R2 Burnout:** funcionar sin habitarse; no se proponen soluciones. Polo visual: ausencia (todo se mueve menos ella).
+> - **R3 Soledad:** la distancia dentro de la compañía; nunca sola; no se promete liberación.
+> - **R4 Identidad:** lo propio que dejó de tener dónde mostrarse; nunca un "nuevo yo". Movimiento rápido al enumerar y quietud en la pausa.
+> - **Frases de cierre:** validadas por Teo el 20-11. No se cambian.
 
 ### Reel 2 · Burnout · imágenes en `assets/dani/r2/` (escenas `r2e_*`)
 | Frames | Plano | Frase en pantalla (aparece → sale) | Imagen A→B | Cámara (centro x,y · zoom) | Vivo |
@@ -201,3 +239,31 @@ Ropa: suéter oliva, jeans y zapatillas negras.
 2. **Voz en off:** cuando llegue, los tiempos de las frases se ajustan a la voz (la transcripción da las marcas de tiempo).
 3. **Telemetría:** la skill de HyperFrames envía un aviso de uso anónimo al empezar (se puede desactivar).
 4. **Remotion o HyperFrames:** el Reel 2 ya existe en Remotion (`video/`). Con la skill `remotion-to-hyperframes` se puede portar y comparar cuadro a cuadro.
+
+---
+
+## 6. Trazabilidad: cada indicación y de dónde viene
+| Indicación | Fuente |
+|---|---|
+| Función del reel (alcance, "esto me pasa a mí", destello del eje) | Documento maestro §1 · Significado de las 12 portadas |
+| Pilares y prohibiciones de lenguaje e imagen | 4 pilares (Teo) · Documento de Marca · Significado de las 12 portadas |
+| Guion, voz en off y frases de cierre | Guiones reformulados con Teo (20-11) |
+| Primera persona, frases de 8 palabras como máximo, cierre que abre | Documento maestro §3 · decisión de Daniela |
+| Estructura (intro, cuerpo, respiro, mundo interno, cierre), 40-45 s | Documento maestro §4 |
+| Persiana y obturador en blanco y negro, con sus tiempos | Documento maestro §5 · Sistema visual §6 · storyboard de la intro |
+| La primera frase entra a los 0,9 s | Decisión de Daniela (20-11) |
+| Planos: una escena o varios planos, corte en la acción, fundido de 0,4 s, sincronía gesto-frase | Documento maestro §6 · Plan de planos del Reel 2 |
+| Cámara ligada a la frase, zoom de 1,3× como máximo, deriva | Documento maestro §7 · Sistema visual §3 |
+| Cámara siempre en movimiento y planos de profundidad | Decisión de Daniela (21-11) |
+| Ambiente vivo: un objeto siempre en movimiento y otro al cambiar de escena; polvo solo con haz de sol | Documento maestro §8 · decisión de Daniela (21-11) |
+| Mundo interno cálido, nunca gris | Documento maestro §9 · ajuste de la sesión (v1) |
+| Texto en Fraunces 600 de 76 px, palabra por palabra | Documento maestro §10 · Sistema visual §2 |
+| Texto a 300 px, fuera del cuadrado | Decisión de Daniela (21-11) |
+| Escena dentro de un cuadrado con bordes blancos | Decisión de Daniela (21-11) |
+| Cierre sobre la escena, sin espiral | Decisión de Daniela (20-11) |
+| Fondo de line art con línea normal, color ≤ 20 %, superficies planas, solo Dani con detalle, siempre una ventana con cortina | Decisiones de Daniela (20-11 y 21-11) · Identidad visual (paleta y trazo uniforme) |
+| Dani: rostro, pelo, gestos, ropa por reel, otras personas | Hoja de personaje · rostro oficial elegido (20-11) |
+| Voz en off de Daniela, sin música | Decisión de Daniela (20-11) · Documento maestro §13 (actualizado) |
+| Sin llamados a la acción nuevos | Decisión de Daniela (20-11) |
+| HyperFrames primero, Remotion solo si conviene | Decisión de Daniela (21-11) |
+| Lo descartado | Documento maestro §18 · Sistema visual |
