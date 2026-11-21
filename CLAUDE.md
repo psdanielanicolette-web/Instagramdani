@@ -33,10 +33,10 @@ Daniela no aparece en las piezas. **@Dani** es un personaje que representa a la 
   - cierre de ≈7 s **sobre la última escena** (sin espiral): la luz baja con una veladura cálida y entra la frase en borgoña.
   - Total: 40-45 s.
 - **Texto:**
-  - Fraunces 600, 76 px, #1A1A1A, alineado a la izquierda, margen 92 px, top **300 px**, **fuera del cuadrado de la escena**, ancho 800 px, interlineado 1,4.
+  - Fraunces 600, 76 px, #1A1A1A, alineado a la izquierda, margen 92 px, top **300 px**, **en el espacio en blanco superior** (la ilustración no llega hasta arriba), ancho 800 px, interlineado 1,4.
   - Entra palabra por palabra (0,12 s entre palabras, 0,65 s de entrada, subida de 18 px) y sale con un fundido de 0,5 s.
   - El cierre va en borgoña #7D4F6A en la misma posición (300 px).
-- **Marco:** la escena va dentro de un **cuadrado con bordes blancos**; el texto queda fuera. Escenas con **planos de profundidad** (primer plano, Dani y fondo) y **cámara siempre en movimiento** (zoom o desplazamiento distinto en cada plano).
+- **Espacio para el texto:** como en el Reel 1, la ilustración no llega hasta arriba; el tercio superior queda en blanco para las letras (no es un marco). Escenas con **planos de profundidad** (primer plano, Dani y fondo) y **cámara siempre en movimiento** (zoom o desplazamiento distinto en cada plano).
 - **Herramienta:** HyperFrames primero (`hyperframes/PROMPT_MAESTRO_REELS.md`); Remotion solo si una función sale mejor ahí, avisando antes.
 - **Cámara:** ligada a lo que dice la frase, zoom de 1,3× como máximo, siempre con una deriva leve.
 - **Ambiente vivo:** en cada escena hay un objeto siempre en movimiento y, al cambiar de escena, se incorpora otro. Puede ser Dani o un elemento del fondo (cortina, planta, vapor, luz, vela); pueden moverse dos o tres a la vez. El polvo va solo donde hay un haz de sol.

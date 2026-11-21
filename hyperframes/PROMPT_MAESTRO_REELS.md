@@ -36,7 +36,7 @@ Reglas:
 ---
 
 ## 3. SPEC de la serie (igual en todos los reels)
-> **Qué se toma del Reel 1 como referencia:** el marco, el texto, la intro y **una escena viva, con planos y cámara en movimiento**.
+> **Qué se toma del Reel 1 como referencia:** el espacio en blanco superior para el texto, la intro y **una escena viva, con planos y cámara en movimiento**.
 > **Qué NO se copia tal cual:** la forma de dar vida a la escena. El polvo en la luz era propio de esa escena. Cada escena elige sus propios elementos vivos (sección AMBIENTE VIVO).
 
 ```text
@@ -46,11 +46,14 @@ OUTPUT:  HyperFrames, 1080 x 1920, 30 fps, vertical (Instagram Reels).
 TIME:    40-45 s = 1200-1350 frames. Sin BPM (no hay música).
 
 LOOK (el medio: ilustración editorial a línea sobre papel blanco + personaje a color)
-  MARCO:   la escena va DENTRO de un cuadrado con bordes blancos; el texto va FUERA del cuadrado.
-           Página #FFFEFE. Cuadrado de 960 x 960 px en x = 60, y = 600
-           (margen blanco de 60 px a los lados). ✅ Resuelto con Daniela el 21-11.
-           La cámara (zoom, desplazamiento) se mueve DENTRO del cuadrado (overflow hidden):
-           el marco y el texto no se mueven.
+  ESPACIO PARA EL TEXTO (como en el Reel 1; NO es un marco):
+           la ilustración NO llega hasta arriba. La escena ocupa todo el ancho y llega hasta el
+           borde inferior; la parte superior del cuadro (≈ el tercio superior, hasta y ≈ 640 px)
+           queda en blanco o como pared vacía de la propia escena, y ahí van las letras.
+           Las imágenes de Flow ya traen ese tercio superior despejado ("The upper third of
+           the frame is empty white wall"). La cámara puede moverse sobre toda la imagen,
+           pero esa franja superior siempre queda vacía: ningún objeto, línea fuerte ni la
+           cabeza de Dani entra en ella. El texto es una capa fija, fuera de la cámara.
   ground:  el fondo de escena viene en las imágenes de Flow: line art negro de LÍNEA NORMAL
            (grosor regular y uniforme, ni fino ni grueso) sobre blanco; color solo en madera,
            marcos y planta, como máximo el 20 % del fondo. Sin degradados ni texturas.
@@ -64,7 +67,7 @@ LOOK (el medio: ilustración editorial a línea sobre papel blanco + personaje a
   persona: Dani a todo color y la única con detalle (piel #ECBFA8, pelo #5A3040).
   display: Fraunces 600, 76 px, tracking 0, interlineado 1.4, color #1A1A1A,
            alineado a la izquierda, x = 92 px, primera línea en y = 300 px, ancho máx. 800 px,
-           siempre FUERA del cuadrado de la escena (encima de él).
+           siempre sobre el espacio en blanco superior, nunca encima de la ilustración.
            Cierre: la misma fuente y la misma posición (y = 300 px), en borgoña.
            (archivo: assets/fonts/Fraunces-600.woff2 con @font-face)
   body:    Inter 500 (solo si hubiera etiquetas; en el reel no hay).
@@ -97,7 +100,7 @@ MOTION (curvas por rol; duraciones en frames a 30 fps)
   texto dura:    ≈3 s por frase (90 f), el cierre se sostiene hasta el final.
   cámara:        ES CLAVE: la escena nunca está quieta. Zoom de acercamiento o alejamiento, o
                  desplazamiento, en CADA plano, distinto del plano anterior. Una transformación
-                 (scale + x/y) sobre las capas dentro del cuadrado; el texto queda fuera de la cámara.
+                 (scale + x/y) sobre las capas de la escena; el texto queda fuera de la cámara.
                  Zoom máximo 1,30. Ease power2.inOut. Movimientos
                  de 3-6 s. Deriva leve permanente: x = 6·sin(0,7·t), y = 3,6·cos(0,53·t) px.
                  Nunca un corte de zoom ni un salto.
@@ -184,8 +187,8 @@ QA (cuadros que hay que revisar)
   el respiro                 → no hay texto y algo se mueve.
   el mundo interno           → es cálido, no gris.
   el cierre                  → sin espiral; borgoña solo en la frase; la escena sigue debajo.
-  todos                      → texto a 76 px, a la izquierda, en y = 300 y fuera del cuadrado; escena dentro
-                               del cuadrado con bordes blancos; cada plano con movimiento de cámara; un objeto
+  todos                      → texto a 76 px, a la izquierda, en y = 300, sobre el espacio en
+                               blanco superior; ninguna parte de la ilustración bajo el texto; cada plano con movimiento de cámara; un objeto
                                siempre en movimiento y otro nuevo al cambiar de escena; duración de 40-45 s.
 ```
 
@@ -198,7 +201,7 @@ Lo que se replica en cada reel, adaptado a HyperFrames:
 - **Ritmo del texto (medido en el Reel 1):** cada frase dura entre 2,2 y 3,6 s en pantalla, con 0,2-0,3 s entre una frase y la siguiente; el respiro dura alrededor de 4 s.
 - **Patrón de cámara del Reel 1** (una escena, 9 frases): general con deriva → se acerca al objeto → al cuerpo (1,3×) → se queda → *respiro con otro plano* → se abre a la ventana → leve acercamiento → al cuerpo → sube al rostro mientras la luz baja. Nunca dos frases seguidas con el mismo movimiento.
 - **Lo que NO viene de Flow y hace el código:** el ambiente vivo, la intro, el texto y la cámara.
-- **Cambios respecto del Reel 1:** el fondo pasa de crema pintado a line art blanco; el cierre ya no tiene espiral; el texto baja a y = 300, fuera del cuadrado; el polvo deja de ser obligatorio.
+- **Cambios respecto del Reel 1:** el fondo pasa de crema pintado a line art blanco; el cierre ya no tiene espiral; el texto baja a y = 300, en el espacio en blanco superior; el polvo deja de ser obligatorio.
 
 ## 4. Planos por reel (para el bloque SHOTS del SPEC)
 
@@ -244,8 +247,7 @@ Ropa: suéter oliva, jeans y zapatillas negras.
 
 ## 5. Decisiones abiertas antes de construir
 0. ⏳ **Movimiento de Dani:** en el Reel 1, Dani se movía con clips de video de Flow (respirar, parpadear, llevar la mano al pecho). En HyperFrames, sin video, los gestos son fundidos entre la Imagen A y la Imagen B. Si un gesto amplio no convence, ese clip se puede generar en Flow (Inicio = A, Fin = B) y usarlo como `<video>` dentro de HyperFrames.
-1. ✅ **Texto en y = 300 px** (decisión del 21-11), fuera del cuadrado.
-1b. ⏳ **Medidas del cuadrado con bordes blancos:** se ajustan con el reel de referencia que enviará Daniela.
+1. ✅ **Texto en y = 300 px** (decisión del 21-11), en el espacio en blanco superior, donde la ilustración no llega (como en el Reel 1).
 2. **Voz en off:** cuando llegue, los tiempos de las frases se ajustan a la voz (la transcripción da las marcas de tiempo).
 3. **Telemetría:** la skill de HyperFrames envía un aviso de uso anónimo al empezar (se puede desactivar).
 4. **Remotion o HyperFrames:** el Reel 2 ya existe en Remotion (`video/`). Con la skill `remotion-to-hyperframes` se puede portar y comparar cuadro a cuadro.
@@ -268,8 +270,7 @@ Ropa: suéter oliva, jeans y zapatillas negras.
 | Ambiente vivo: un objeto siempre en movimiento y otro al cambiar de escena; polvo solo con haz de sol | Documento maestro §8 · decisión de Daniela (21-11) |
 | Mundo interno cálido, nunca gris | Documento maestro §9 · ajuste de la sesión (v1) |
 | Texto en Fraunces 600 de 76 px, palabra por palabra | Documento maestro §10 · Sistema visual §2 |
-| Texto a 300 px, fuera del cuadrado | Decisión de Daniela (21-11) |
-| Escena dentro de un cuadrado con bordes blancos | Decisión de Daniela (21-11) |
+| Texto a 300 px, en el espacio en blanco superior (la ilustración no llega arriba) | Decisión de Daniela (21-11) · Plantilla del Reel 1 §3 |
 | Cierre sobre la escena, sin espiral | Decisión de Daniela (20-11) |
 | Fondo de line art con línea normal, color ≤ 20 %, superficies planas, solo Dani con detalle, siempre una ventana con cortina | Decisiones de Daniela (20-11 y 21-11) · Identidad visual (paleta y trazo uniforme) |
 | Dani: rostro, pelo, gestos, ropa por reel, otras personas | Hoja de personaje · rostro oficial elegido (20-11) |
