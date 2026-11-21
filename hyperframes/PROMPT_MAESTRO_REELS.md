@@ -57,8 +57,25 @@ LOOK (el medio: ilustración editorial a línea sobre papel blanco + personaje a
   ground:  el fondo de escena viene en las imágenes de Flow: line art negro de LÍNEA NORMAL
            (grosor regular y uniforme, ni fino ni grueso) sobre blanco; color solo en madera,
            marcos y planta, como máximo el 20 % del fondo. Sin degradados ni texturas.
-  PLANOS:  cada escena tiene profundidad en capas: primer plano (un objeto cercano, por ejemplo
-           el borde de la mesa o la cortina), plano medio (Dani) y fondo (pared y ventana).
+  FONDO (definido con Daniela el 21-11):
+           ángulo: el que mejor cuente cada momento (desde arriba para la cama; de lado para la
+             cocina o la ventana); puede variar dentro del reel.
+           borde superior: la ilustración SE DISUELVE EN BLANCO hacia arriba, sin un borde visible;
+             la pared se va quedando en blanco. En HyperFrames, una máscara en degradado vertical
+             (100 % opaca en y ≥ 760, 0 % en y ≤ 600) por encima de la escena, para que la cámara
+             nunca muestre un borde.
+           luz: un brillo cálido muy suave (#FFF4E2, casi blanco) que entra por la ventana; no cuenta
+             como color y puede respirar o viajar.
+           sombras: solo una sombra de contacto mínima, gris cálida suave (#2D2825 al 8-12 %,
+             desenfoque de 10-16 px), bajo los muebles y los pies de Dani.
+           ventana: muestra solo luz o blanco, sin exterior.
+           cantidad: 4-5 objetos por escena (el mueble principal, la ventana con cortina y 2-3 detalles,
+             como en la cama aprobada).
+           continuidad: entre los lugares de un reel se mantiene el ESTILO, no necesariamente la misma casa.
+           referencia aprobada: assets/dani/r2/r2e_cama_APROBADA.png
+  PLANOS:  cada escena tiene profundidad en capas: primer plano = un OBJETO DE LA PROPIA ESCENA que
+           queda cerca de la cámara (el borde de la mesa, el respaldo de una silla, la cortina),
+           nítido y en el mismo line art; plano medio = Dani; fondo = pared y ventana.
            Las capas se separan (recorte) y se mueven a distinta velocidad con la cámara
            (parallax: primer plano ×1,15, Dani ×1,0, fondo ×0,9).
   ink:     line art #2D2825 (negro cálido); texto #1A1A1A.
