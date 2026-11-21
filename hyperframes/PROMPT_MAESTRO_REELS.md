@@ -191,6 +191,15 @@ QA (cuadros que hay que revisar)
 
 ---
 
+## 3b. Molde del Reel 1 (de `docs/plantilla_ilustracion_reel1.md`)
+Lo que se replica en cada reel, adaptado a HyperFrames:
+- **Kit por lugar:** una **Imagen A** (escena base) y una **Imagen B** (el gesto), con la misma escena y la misma ropa, más una **Imagen C** opcional para el **respiro** (un primer plano distinto, por ejemplo los ojos cerrados). En el Reel 1 ese primer plano fue el pasaje más fuerte.
+- **Composición dentro del cuadrado:** Dani en los dos tercios inferiores del cuadro; la ventana y su luz a un lado; **un objeto de apoyo vivo** (la taza con vapor, la cortina, la planta).
+- **Ritmo del texto (medido en el Reel 1):** cada frase dura entre 2,2 y 3,6 s en pantalla, con 0,2-0,3 s entre una frase y la siguiente; el respiro dura alrededor de 4 s.
+- **Patrón de cámara del Reel 1** (una escena, 9 frases): general con deriva → se acerca al objeto → al cuerpo (1,3×) → se queda → *respiro con otro plano* → se abre a la ventana → leve acercamiento → al cuerpo → sube al rostro mientras la luz baja. Nunca dos frases seguidas con el mismo movimiento.
+- **Lo que NO viene de Flow y hace el código:** el ambiente vivo, la intro, el texto y la cámara.
+- **Cambios respecto del Reel 1:** el fondo pasa de crema pintado a line art blanco; el cierre ya no tiene espiral; el texto baja a y = 300, fuera del cuadrado; el polvo deja de ser obligatorio.
+
 ## 4. Planos por reel (para el bloque SHOTS del SPEC)
 
 > **Sentido por reel (pilares de Teo):**
@@ -234,6 +243,7 @@ Ropa: suéter oliva, jeans y zapatillas negras.
 ---
 
 ## 5. Decisiones abiertas antes de construir
+0. ⏳ **Movimiento de Dani:** en el Reel 1, Dani se movía con clips de video de Flow (respirar, parpadear, llevar la mano al pecho). En HyperFrames, sin video, los gestos son fundidos entre la Imagen A y la Imagen B. Si un gesto amplio no convence, ese clip se puede generar en Flow (Inicio = A, Fin = B) y usarlo como `<video>` dentro de HyperFrames.
 1. ✅ **Texto en y = 300 px** (decisión del 21-11), fuera del cuadrado.
 1b. ⏳ **Medidas del cuadrado con bordes blancos:** se ajustan con el reel de referencia que enviará Daniela.
 2. **Voz en off:** cuando llegue, los tiempos de las frases se ajustan a la voz (la transcripción da las marcas de tiempo).
