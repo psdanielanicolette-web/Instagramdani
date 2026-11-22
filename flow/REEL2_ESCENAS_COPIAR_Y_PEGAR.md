@@ -32,6 +32,23 @@ Keep @Dani exactly the same — face, hair, pajamas or clothes, pose, position, 
 
 ---
 
+## ✅ ESCENA 1 · ESTADO (22-11)
+La escena aprobada `assets/dani/r2/r2e_cama_APROBADA.png` es la **base** (Dani con los ojos entreabiertos y pesados). Se queda tal cual. Las 3 que faltan se hacen **editando la aprobada**, cada una por separado:
+1. `r2e_cama_ojos-cerrados.png`:
+```
+Keep everything exactly the same — scene, bed, bedside table, lamp, plant, window, curtain, light, framing, line style and colors, Dani's face shape, hair and pajamas — but her eyes are fully closed as thin curves, peacefully asleep.
+```
+2. `r2e_cama_ojos-abiertos.png`:
+```
+Keep everything exactly the same — scene, bed, bedside table, lamp, plant, window, curtain, light, framing, line style and colors, Dani's face shape, hair and pajamas — but her eyes are open, gazing at nothing, calm and empty, not sad.
+```
+3. `r2e_cama_vacia.png` (escena sin Dani, para las capas de profundidad):
+```
+Keep the scene exactly the same — bed, pillow, blanket, bedside table, lamp, plant, window, curtain, floor, light, framing, line style and colors — but remove Dani completely, as if she just got up. The bed stays unmade where she was lying, drawn in the same simple white line art.
+```
+
+---
+
 ## ESCENA 1 · Dormitorio visto desde arriba (planos 1 y 2)
 **Partes de:** `r2_cama-lado_ojos-cerrados.png`
 
