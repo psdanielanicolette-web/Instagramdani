@@ -1,0 +1,9 @@
+{
+  "escena": "assets/dani/r2/r2e_cama_APROBADA.png",
+  "salida": "hyperframes/reel2/assets/cama",
+  "capas": [
+    {"nombre": "cortina", "tipo": "franja", "caja": [540, 88, 618, 428]},
+    {"nombre": "planta",  "tipo": "color",  "caja": [690, 470, 756, 640]},
+    {"nombre": "respira", "tipo": "elipse", "caja": [300, 430, 620, 690]}
+  ]
+}
