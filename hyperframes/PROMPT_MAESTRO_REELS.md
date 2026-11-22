@@ -69,10 +69,19 @@ LOOK (el medio: ilustración editorial a línea sobre papel blanco + personaje a
            sombras: solo una sombra de contacto mínima, gris cálida suave (#2D2825 al 8-12 %,
              desenfoque de 10-16 px), bajo los muebles y los pies de Dani.
            ventana: muestra solo luz o blanco, sin exterior.
-           cantidad: 4-5 objetos por escena (el mueble principal, la ventana con cortina y 2-3 detalles,
+           cantidad: 4-6 objetos por escena (el mueble principal, la ventana con cortina y 2-3 detalles,
              como en la cama aprobada).
            continuidad: entre los lugares de un reel se mantiene el ESTILO, no necesariamente la misma casa.
            referencia aprobada: assets/dani/r2/r2e_cama_APROBADA.png
+           referencias de estilo: assets/referencias/fondos/ (balcón, cocina, calle) con un 20 % menos de
+             elementos. Línea negra uniforme de ≈3 px a 1080, como un libro para colorear limpio.
+           COLOR DE MARCA POR OBJETO (planos, sin sombra; en total como máximo el 20 % del fondo):
+             madera (muebles, marcos) #D7B18F · textiles (cortina, cojines, mantas) #EED3BB o #F4D5DC ·
+             plantas #3F4A3A · cerámica (tazas, jarras, maceteros) #EED3BB o #F4D5DC · el resto en blanco.
+             El borgoña #7D4F6A NO va en los fondos.
+           control: python3 tools/medir_fondo.py <escena> [<dani recortada>] → color ≤ 20 %, densidad
+             de tinta ≈ 6-8 %, grosor ≈ 3 px, tercio superior casi vacío.
+           movimiento: en CADA escena siempre hay al menos un objeto en movimiento.
   PLANOS:  cada escena tiene profundidad en capas: primer plano = un OBJETO DE LA PROPIA ESCENA que
            queda cerca de la cámara (el borde de la mesa, el respaldo de una silla, la cortina),
            nítido y en el mismo line art; plano medio = Dani; fondo = pared y ventana.
