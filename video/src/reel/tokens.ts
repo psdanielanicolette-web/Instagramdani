@@ -19,8 +19,8 @@ export const TEXTO = {
   peso: 600,
   tamano: 76,
   margenIzq: 92,
-  top: 150,
-  topCierre: 330,
+  top: 300,
+  topCierre: 300,
   anchoMax: 800,
   interlineado: 1.4,
   retrasoPalabra: 0.12, // s

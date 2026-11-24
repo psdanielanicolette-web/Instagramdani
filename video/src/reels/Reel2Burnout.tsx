@@ -1,34 +1,62 @@
 import React from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { Camara } from "../reel/Camara";
-import { Cierre } from "../reel/Cierre";
-import { HazDeLuz, Polvo, Vapor } from "../reel/Contexto";
-import {
-  Dani,
-  FondoCocina,
-  FondoCocinaAmplia,
-  FondoDormitorioArriba,
-  FondoDormitorioLado,
-  FondoVentana,
-  Plano,
-} from "../reel/Escena";
+import { HazDeLuz, Vapor } from "../reel/Contexto";
+import { Dani, Plano } from "../reel/Escena";
 import { Frase } from "../reel/Frase";
 import { Intro } from "../reel/Intro";
-import { COLOR, FPS } from "../reel/tokens";
+import { FondoCocina, FondoCocinaAmplia, FondoDormitorio, FondoVentanaGrande } from "../reel/LineArt";
+import { FPS } from "../reel/tokens";
 
 // Reel 2 · Burnout · "funcionar sin estar"
-// Guion: guiones/reels-2-3-4-validados.md · Planos: reels/r2-burnout/
-// Todos los tiempos en segundos absolutos del reel.
+// Guion: guiones/REEL2_GUION_PRODUCCION_SIMPLE.md (texto validado por Teo).
+// Tiempos en segundos absolutos del reel.
 export const DURACION_R2 = 44.4;
 
-const T = {
-  cama: [0, 12.4], // planos 1 y 2 (misma cama: duerme → despierta)
-  borde: [12.4, 18.8], // plano 3
-  cocina: [18.8, 23.6], // plano 4
-  inserto: [23.6, 26.0], // plano 5 · respiro
-  amplia: [26.0, 31.0], // plano 6 · la cámara se aleja
-  ventana: [31.0, 44.4], // plano 7 · mundo interno + cierre sobre la escena
-  cierre: 37.6,
+const cl = { extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
+
+// ---------------------------------------------------------------------------
+// Escena aprobada de la cama (Flow), separada en capas: tools/capas_escena.py
+// Imagen 756x1344 → 1080x1920 (×1,428571), bajada 300 px: arriba queda el
+// espacio en blanco para el texto.
+// ---------------------------------------------------------------------------
+const S = 1080 / 756;
+const OY = 300;
+const caja = (x: number, y: number, w: number, h: number): React.CSSProperties => ({
+  position: "absolute",
+  left: x * S,
+  top: y * S + OY,
+  width: w * S,
+  height: h * S,
+});
+
+const EscenaCama: React.FC = () => {
+  const t = useCurrentFrame() / FPS;
+  const cortina = 1.6 * Math.sin((2 * Math.PI * t) / 5) + 0.5 * Math.sin((2 * Math.PI * t) / 2.3);
+  const planta = 1.8 * Math.sin((2 * Math.PI * t) / 4.6 + 0.8);
+  const resp = 1 + 0.006 * (0.5 - 0.5 * Math.cos((2 * Math.PI * t) / 4.2));
+  // ojos: cerrados (fin de semana) → entreabiertos (7,7 s) → abiertos (9,0 s)
+  const cerrados = 1 - interpolate(t, [7.7, 8.2], [0, 1], cl);
+  const abiertos = interpolate(t, [9.0, 9.4], [0, 1], cl);
+  return (
+    <AbsoluteFill>
+      <Img src={staticFile("escenas/cama/fondo.png")} style={caja(0, 0, 756, 1344)} />
+      <Img
+        src={staticFile("escenas/cama/respira.png")}
+        style={{ ...caja(300, 430, 320, 260), transformOrigin: "50% 100%", transform: `scale(${resp}, ${1 + (resp - 1) * 1.4})` }}
+      />
+      <Img src={staticFile("escenas/cama/ojos_cerrados.png")} style={{ ...caja(470, 468, 80, 80), opacity: cerrados }} />
+      <Img src={staticFile("escenas/cama/ojos_abiertos.png")} style={{ ...caja(470, 468, 80, 80), opacity: abiertos }} />
+      <Img
+        src={staticFile("escenas/cama/cortina.png")}
+        style={{ ...caja(540, 88, 78, 340), transformOrigin: "50% 0%", transform: `skewX(${cortina}deg)` }}
+      />
+      <Img
+        src={staticFile("escenas/cama/planta.png")}
+        style={{ ...caja(690, 470, 66, 170), transformOrigin: "30% 100%", transform: `rotate(${planta}deg)` }}
+      />
+    </AbsoluteFill>
+  );
 };
 
 const FRASES: { texto: string; desde: number; hasta: number }[] = [
@@ -43,133 +71,126 @@ const FRASES: { texto: string; desde: number; hasta: number }[] = [
   { texto: "Quizá no necesito descansar más.", desde: 31.4, hasta: 34.3 },
   { texto: "Quizá esto que cargo tiene otra forma,", desde: 34.5, hasta: 37.4 },
 ];
-const FRASE_CIERRE = "y todavía no tiene nombre.";
 
 export const Reel2Burnout: React.FC = () => {
   const t = useCurrentFrame() / FPS;
-  // "la luz se apaga y vuelve" entre el fin de semana y el lunes
-  const apagon = interpolate(t, [5.8, 6.2, 6.7], [1, 0.9, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  // mundo interno: la luz baja ≈10 % y el color se apaga ≈18 %, nunca gris:
-  // sobre fondo blanco se logra con una veladura cálida (multiply) + saturación
-  const interno = interpolate(t, [31.4, 33.0], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const filtroInterno = `saturate(${1 - 0.18 * interno})`;
+  // la luz baja un momento entre el fin de semana y el lunes
+  const apagon = t < 6.2 ? interpolate(t, [5.8, 6.2], [0, 1], cl) : interpolate(t, [6.2, 6.7], [1, 0], cl);
+  // mundo interno (31,4 s) y cierre (37,6 s): veladura cálida, nunca gris
+  const interno = interpolate(t, [31.4, 33.0], [0, 1], cl);
+  const cierre = interpolate(t, [37.6, 38.8], [0, 1], cl);
+  const velo = Math.max(0.35 * apagon, 0.22 * interno + 0.12 * cierre);
+  const satInterno = `saturate(${1 - 0.18 * interno})`;
 
   return (
-    <AbsoluteFill style={{ backgroundColor: COLOR.fondo }}>
-      {/* PLANOS 1–2 · cama: duerme (la luz recorre la cama) → abre los ojos */}
-      <Plano desde={T.cama[0]} hasta={T.cama[1]}>
+    <AbsoluteFill style={{ backgroundColor: "#FFFEFE" }}>
+      {/* ESCENAS 1–2 · la cama: duerme → despierta (siempre: cortina · entran: respiración, luz, ojos) */}
+      <Plano desde={0} hasta={12.4}>
         <Camara
-          filtro={`brightness(${apagon})`}
           claves={[
-            { t: 0, x: 560, y: 980, z: 1.0 },
-            { t: 6.0, x: 600, y: 940, z: 1.06 },
-            { t: 6.6, x: 640, y: 820, z: 1.1 },
-            { t: 12.4, x: 686, y: 700, z: 1.3 },
+            { t: 0, x: 540, y: 1150, z: 1.0 },
+            { t: 6.0, x: 580, y: 1120, z: 1.06 },
+            { t: 6.6, x: 620, y: 1080, z: 1.1 },
+            { t: 12.4, x: 743, y: 1029, z: 1.3 },
           ]}
         >
-          <FondoDormitorioArriba />
-          <Dani
-            imagenes={["r2_cama-lado_ojos-cerrados.png", "r2_cama-lado_ojos-entreabiertos.png", "r2_cama-lado_ojos-abiertos.png"]}
-            cambios={[
-              { t: 7.7, a: 1, dur: 0.5 },
-              { t: 9.0, a: 2, dur: 0.4 },
-            ]}
-          />
-          <HazDeLuz puntos="1180,260 880,260 260,1560 620,1560" viaje={{ desde: 0, hasta: 6, dx: -260 }} intensidad={0.7} />
-          <Polvo zona={{ x: 420, y: 420, w: 640, h: 1100 }} semilla="cama" />
+          <EscenaCama />
+          <HazDeLuz puntos="1080,430 880,430 300,1500 760,1560" viaje={{ desde: 0, hasta: 6, dx: -260 }} intensidad={0.6} />
         </Camara>
       </Plano>
 
-      {/* PLANO 3 · borde de la cama: de general a las manos; exhala en "Dormir no lo repone" */}
-      <Plano desde={T.borde[0]} hasta={T.borde[1]}>
+      {/* ESCENA 3 · borde de la cama, de lado: de general a las manos; exhala */}
+      <Plano desde={12.4} hasta={18.8}>
         <Camara
           claves={[
-            { t: 12.4, x: 540, y: 1000, z: 1.0 },
-            { t: 15.4, x: 520, y: 1150, z: 1.12 },
-            { t: 17.6, x: 490, y: 1250, z: 1.25 },
+            { t: 12.4, x: 560, y: 1180, z: 1.12 },
+            { t: 15.4, x: 520, y: 1300, z: 1.2 },
+            { t: 17.8, x: 500, y: 1420, z: 1.28 },
           ]}
         >
-          <FondoDormitorioLado />
-          <HazDeLuz puntos="1030,560 760,560 160,1600 720,1700" intensidad={0.6} />
+          <FondoDormitorio />
+          <HazDeLuz puntos="1000,640 720,640 160,1700 720,1760" intensidad={0.5} />
           <Dani
             imagenes={["r2_borde-cama_hombros-arriba.png", "r2_borde-cama_hombros-abajo.png"]}
             cambios={[{ t: 15.8, a: 1, dur: 0.9 }]}
+            k={0.92}
+            y={280}
           />
-          <Polvo zona={{ x: 420, y: 560, w: 640, h: 900 }} semilla="borde" />
         </Camara>
       </Plano>
 
-      {/* PLANO 4 · cocina en automático: sigue manos y taza; corte en la acción (la taza llena) */}
-      <Plano desde={T.cocina[0]} hasta={T.cocina[1]}>
+      {/* ESCENA 4 · cocina: sirve café en automático; corte cuando la taza se llena */}
+      <Plano desde={18.8} hasta={23.6}>
         <Camara
           claves={[
-            { t: 18.8, x: 560, y: 1000, z: 1.05 },
-            { t: 23.6, x: 740, y: 1110, z: 1.22 },
+            { t: 18.8, x: 560, y: 1250, z: 1.04 },
+            { t: 23.6, x: 760, y: 1380, z: 1.2 },
           ]}
         >
           <FondoCocina />
-          <HazDeLuz puntos="1030,560 800,560 380,1400 760,1500" intensidad={0.55} />
-          <Dani
-            imagenes={["r2_cocina_jarra-arriba.png", "r2_cocina_jarra-inclinada.png"]}
-            cambios={[{ t: 21.2, a: 1, dur: 0.6 }]}
-          />
-          {t > 21.8 && <Vapor x={826} y={1176} />}
-          <Polvo zona={{ x: 560, y: 600, w: 500, h: 800 }} semilla="cocina" />
+          <HazDeLuz puntos="1020,640 780,640 380,1500 760,1560" intensidad={0.45} />
+          <Dani imagenes={["r2_cocina_jarra-arriba.png", "r2_cocina_jarra-inclinada.png"]} cambios={[{ t: 21.2, a: 1, dur: 0.6 }]} y={230} />
+          {t > 21.8 && <Vapor x={826} y={1406} />}
         </Camara>
       </Plano>
 
-      {/* PLANO 5 · respiro: la taza, solo el vapor se mueve */}
-      <Plano desde={T.inserto[0]} hasta={T.inserto[1]}>
-        <Camara deriva={2} claves={[{ t: 23.6, x: 800, y: 1150, z: 1.3 }]}>
+      {/* ESCENA 5 · respiro: la taza; solo se mueve el vapor */}
+      <Plano desde={23.6} hasta={26.0}>
+        <Camara deriva={2} claves={[{ t: 23.6, x: 810, y: 1390, z: 1.3 }]}>
           <FondoCocina />
-          <Dani imagenes={["r2_cocina_jarra-inclinada.png"]} respira={false} />
-          <Vapor x={826} y={1176} />
+          <Dani imagenes={["r2_cocina_jarra-inclinada.png"]} respira={false} y={230} />
+          <Vapor x={826} y={1406} />
         </Camara>
       </Plano>
 
-      {/* PLANO 6 · de pie con la taza: la cámara se aleja, ella queda pequeña */}
-      <Plano desde={T.amplia[0]} hasta={T.amplia[1]} fundidoSalida={0.4}>
+      {/* ESCENA 6 · de pie en la cocina: la cámara se aleja, ella queda pequeña */}
+      <Plano desde={26.0} hasta={31.0} fundidoSalida={0.4}>
         <Camara
           claves={[
-            { t: 26.0, x: 360, y: 840, z: 1.28 },
-            { t: 26.6, x: 360, y: 840, z: 1.28 },
-            { t: 30.6, x: 540, y: 960, z: 1.0 },
+            { t: 26.0, x: 360, y: 960, z: 1.28 },
+            { t: 26.6, x: 360, y: 960, z: 1.28 },
+            { t: 30.6, x: 540, y: 1150, z: 1.0 },
           ]}
         >
           <FondoCocinaAmplia />
-          <HazDeLuz puntos="940,720 640,720 120,1700 560,1700" intensidad={0.5} />
           <Dani imagenes={["r2_de-pie-taza_ojos-abiertos.png"]} k={0.62} x={-212} y={-128} />
           <Vapor x={432} y={1062} escala={0.7} />
-          <Polvo zona={{ x: 300, y: 700, w: 700, h: 900 }} semilla="amplia" />
         </Camara>
       </Plano>
 
-      {/* PLANO 7 · junto a la ventana: sube al rostro y baja la luz (mundo interno) */}
-      <Plano desde={T.ventana[0]} hasta={T.ventana[1]} fundidoEntrada={0.4}>
+      {/* ESCENA 7 + CIERRE · junto a la ventana: sube al rostro; la luz baja (mundo interno) */}
+      <Plano desde={31.0} hasta={44.4} fundidoEntrada={0.4}>
         <Camara
-          filtro={filtroInterno}
+          filtro={satInterno}
           claves={[
-            { t: 31.0, x: 540, y: 1000, z: 1.0 },
-            { t: 32.0, x: 520, y: 960, z: 1.04 },
-            { t: 36.5, x: 440, y: 720, z: 1.25 },
-            { t: 44.4, x: 440, y: 700, z: 1.28 },
+            { t: 31.0, x: 540, y: 1200, z: 1.0 },
+            { t: 32.0, x: 520, y: 1160, z: 1.04 },
+            { t: 36.8, x: 440, y: 980, z: 1.26 },
+            { t: 44.4, x: 440, y: 960, z: 1.3 },
           ]}
         >
-          <FondoVentana />
-          <HazDeLuz puntos="1000,520 660,520 80,1720 620,1720" intensidad={0.65} />
-          <Dani imagenes={["r2_de-pie-taza_ojos-abiertos.png"]} k={0.82} x={-142} y={20} />
-          <Vapor x={536} y={978} escala={0.85} />
-          <Polvo zona={{ x: 300, y: 520, w: 720, h: 1100 }} semilla="ventana" />
+          <FondoVentanaGrande />
+          <HazDeLuz puntos="1000,620 640,620 80,1760 620,1760" intensidad={0.55} />
+          <Dani imagenes={["r2_de-pie-taza_ojos-abiertos.png"]} k={0.72} x={-142} y={12} />
+          <Vapor x={518} y={1090} escala={0.8} />
         </Camara>
-        <AbsoluteFill style={{ backgroundColor: "#EBDDCB", mixBlendMode: "multiply", opacity: 0.55 * interno }} />
       </Plano>
 
-      {/* Texto (fuera de la cámara: no se mueve con el zoom) */}
+      {/* veladura cálida (apagón, mundo interno, cierre) */}
+      <AbsoluteFill style={{ backgroundColor: "#EADCCB", mixBlendMode: "multiply", opacity: velo }} />
+
+      {/* espacio en blanco superior: la ilustración se disuelve hacia el texto */}
+      <AbsoluteFill
+        style={{
+          background: "linear-gradient(to bottom, #FFFEFE 0px, #FFFEFE 340px, rgba(255,254,254,0) 580px)",
+          height: 600,
+        }}
+      />
+
       {FRASES.map((f) => (
         <Frase key={f.texto} texto={f.texto} desde={f.desde} hasta={f.hasta} />
       ))}
-
-      <Cierre desde={T.cierre} frase={FRASE_CIERRE} />
+      <Frase texto="y todavía no tiene nombre." desde={38.4} cierre />
       <Intro />
     </AbsoluteFill>
   );
