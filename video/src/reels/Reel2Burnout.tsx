@@ -6,7 +6,6 @@ import { Dani, Plano } from "../reel/Escena";
 import { Frase } from "../reel/Frase";
 import { Intro } from "../reel/Intro";
 import {
-  FondoCocina,
   FondoCocinaAmplia,
   FondoDormitorioArriba,
   FondoDormitorioLado,
@@ -14,6 +13,7 @@ import {
   PrimerPlanoDormitorio,
 } from "../reel/LineArt";
 import { FPS } from "../reel/tokens";
+import { FondoCocinaDetalle } from "../reel/FondoCocinaDetalle";
 
 // Reel 2 · Burnout · "funcionar sin estar"
 // Guion: guiones/REEL2_GUION_PRODUCCION_SIMPLE.md (texto validado por Teo).
@@ -117,7 +117,7 @@ export const Reel2Burnout: React.FC = () => {
           ]}
           deriva={4}
         >
-          <FondoCocina pisoY={1736} />
+          <FondoCocinaDetalle pisoY={1736} />
           <HazDeLuz puntos="990,830 730,830 360,1600 760,1660" intensidad={0.4} />
           <Dani
             imagenes={["r2_cocina_jarra-arriba.png", "r2_cocina_jarra-inclinada.png"]}
@@ -138,7 +138,7 @@ export const Reel2Burnout: React.FC = () => {
             { t: B.s6, x: 781, y: 1600, z: 1.13 },
           ]}
         >
-          <FondoCocina pisoY={1736} />
+          <FondoCocinaDetalle pisoY={1736} />
           <Dani imagenes={["r2_cocina_jarra-inclinada.png"]} respira={false} k={0.85} y={100} />
           <Vapor x={781} y={1388} />
         </Camara>
