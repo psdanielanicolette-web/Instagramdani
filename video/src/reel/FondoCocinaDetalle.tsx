@@ -1,14 +1,14 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
-import { Cortina, LT, MADERA, OLIVA, ROSA, TEXTIL } from "./LineArt";
+import { Cortina, LT, MADERA, OLIVA, ROSA, Sol, TEXTIL } from "./LineArt";
 import { FPS, H, W } from "./tokens";
 
 // Muestra de estilo (referencia: assets/referencias/fondos/ref_cocina.png, con ~20 % menos):
 // cocina en perspectiva de un punto, línea negra uniforme de 3 px, objetos con
 // detalle dentro de la línea, color de marca solo en algunos objetos.
 // Todo queda bajo y = 780 (franja del texto libre).
-const L = { stroke: LT, strokeWidth: 3, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, fill: "#fff" };
-const L2 = { ...L, strokeWidth: 2 };
+const L = { stroke: LT, strokeWidth: 2.2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, fill: "#fff" };
+const L2 = { ...L, strokeWidth: 1.5 };
 
 const Hoja: React.FC<{ x: number; y: number; r: number; l: number }> = ({ x, y, r, l }) => (
   <g transform={`translate(${x},${y}) rotate(${r})`}>
@@ -39,10 +39,10 @@ export const FondoCocinaDetalle: React.FC<{ pisoY: number }> = ({ pisoY }) => {
   const pano = 3 * Math.sin((2 * Math.PI * t) / 5.5);
   return (
     <svg width={W} height={H} style={{ position: "absolute", inset: 0 }}>
-      <rect width={W} height={H} fill="#FFFEFE" />
+      <rect width={W} height={H} fill="#ECEBE6" />
 
       {/* esquina del cuarto (perspectiva de un punto): pared izquierda en fuga */}
-      <path d={`M 0 790 L 150 860 L 150 ${pisoY - 60} L 0 ${pisoY + 10}`} {...L} fill="#FFFEFE" />
+      <path d={`M 0 790 L 150 860 L 150 ${pisoY - 60} L 0 ${pisoY + 10}`} {...L} fill="#ECEBE6" />
 
       {/* muebles altos a la izquierda: dos puertas con manilla */}
       <rect x={170} y={820} width={300} height={200} {...L} />
@@ -90,11 +90,12 @@ export const FondoCocinaDetalle: React.FC<{ pisoY: number }> = ({ pisoY }) => {
 
       {/* ventana con cortina de lino (se mueve) */}
       <rect x={780} y={830} width={250} height={340} {...L} fill={MADERA} />
-      <rect x={796} y={846} width={218} height={308} {...L} fill="#FFFDF8" />
+      <rect x={796} y={846} width={218} height={308} {...L} fill="#FBF8F1" />
       <rect x={900} y={846} width={10} height={308} {...L2} fill={MADERA} />
       <rect x={796} y={995} width={218} height={10} {...L2} fill={MADERA} />
       <line x1={830} y1={880} x2={860} y2={912} {...L2} opacity={0.45} />
       <rect x={764} y={1170} width={282} height={16} {...L} fill={MADERA} />
+      <Sol vx={780} vy={830} vw={250} vh={340} pisoY={pisoY} largo={460} />
       <PlantaMaceta x={985} y={1170} s={0.75} fase={1} />
       <Cortina x={742} y={810} w={96} h={410} fase={0.5} />
 

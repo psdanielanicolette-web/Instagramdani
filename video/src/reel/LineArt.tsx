@@ -8,13 +8,13 @@ import { FPS, H, W } from "./tokens";
 // REGLA: ningún dibujo sube de y = ZONA_ESCENA (el texto vive arriba, en blanco).
 
 export const ZONA_ESCENA = 780;
-export const LT = "#2D2825";
+export const LT = "#6B645D"; // línea fina gris cálida (estilo Reel 1)
 export const MADERA = "#D7B18F";
 export const TEXTIL = "#EED3BB";
 export const ROSA = "#F4D5DC";
 export const OLIVA = "#3F4A3A";
-const L = { stroke: LT, strokeWidth: 3, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
-const L2 = { ...L, strokeWidth: 2 };
+const L = { stroke: LT, strokeWidth: 2.2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+const L2 = { ...L, strokeWidth: 1.5 };
 
 const useT = () => useCurrentFrame() / FPS;
 
@@ -36,7 +36,7 @@ export const Cortina: React.FC<{ x: number; y: number; w: number; h: number; fas
     <g>
       <line x1={x - 24} y1={y} x2={x + w + 24} y2={y} {...L} />
       <circle cx={x - 28} cy={y} r={6} fill="#fff" {...L} />
-      <path d={d} fill={TEXTIL} fillOpacity={0.6} {...L} />
+      <path d={d} fill="#F7F5F0" fillOpacity={0.85} {...L} />
       <path d={pl(0.35)} fill="none" {...L2} />
       <path d={pl(0.68)} fill="none" {...L2} />
     </g>
@@ -87,7 +87,7 @@ export const Planta: React.FC<{ x: number; y: number; s?: number; fase?: number;
 export const Ventana: React.FC<{ x: number; y: number; w: number; h: number }> = ({ x, y, w, h }) => (
   <g>
     <rect x={x} y={y} width={w} height={h} fill={MADERA} {...L} />
-    <rect x={x + 16} y={y + 16} width={w - 32} height={h - 32} fill="#FFFDF8" {...L} />
+    <rect x={x + 16} y={y + 16} width={w - 32} height={h - 32} fill="#FBF8F1" {...L} />
     <rect x={x + w / 2 - 5} y={y + 16} width={10} height={h - 32} fill={MADERA} {...L2} />
     <rect x={x + 16} y={y + h * 0.48 - 5} width={w - 32} height={10} fill={MADERA} {...L2} />
     <line x1={x + w * 0.2} y1={y + h * 0.12} x2={x + w * 0.34} y2={y + h * 0.26} {...L2} opacity={0.45} />
@@ -137,9 +137,73 @@ export const Repisa: React.FC<{ x: number; y: number; w: number }> = ({ x, y, w 
   </g>
 );
 
+// ---------- el sol del Reel 1: haz cálido en diagonal desde la ventana + manchas en el piso ----------
+export const Sol: React.FC<{ vx: number; vy: number; vw: number; vh: number; pisoY: number; largo?: number }> = ({
+  vx,
+  vy,
+  vw,
+  vh,
+  pisoY,
+  largo = 520,
+}) => {
+  const t = useT();
+  const r = 1 + 0.05 * Math.sin((2 * Math.PI * t) / 6.5);
+  const dx = -largo; // el haz baja hacia la izquierda
+  const id = `sol-${vx}-${vy}`;
+  // manchas en el piso: los vidrios proyectados (4 rombos)
+  const px = vx + dx * 0.9;
+  const pw = vw * 0.45;
+  return (
+    <g opacity={r}>
+      <defs>
+        <linearGradient id={id} x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#FBEBCF" stopOpacity={0.95} />
+          <stop offset="1" stopColor="#FBEBCF" stopOpacity={0.25} />
+        </linearGradient>
+        <filter id={`${id}-b`}><feGaussianBlur stdDeviation="7" /></filter>
+      </defs>
+      <polygon
+        points={`${vx},${vy} ${vx + vw * 0.15},${vy} ${vx + dx * 0.55},${pisoY} ${vx + dx},${pisoY}`}
+        fill={`url(#${id})`}
+        filter={`url(#${id}-b)`}
+      />
+      <polygon
+        points={`${vx},${vy + vh} ${vx},${vy} ${vx + dx * 0.25},${vy + vh * 0.6} ${vx + dx * 0.25},${vy + vh * 1.4}`}
+        fill="#FBEBCF"
+        opacity={0.55}
+        filter={`url(#${id}-b)`}
+      />
+      {[0, 1].map((i) =>
+        [0, 1].map((j) => (
+          <polygon
+            key={`${i}${j}`}
+            points={`${px + i * (pw + 14) + j * 40},${pisoY + 30 + j * 70} ${px + i * (pw + 14) + pw + j * 40},${pisoY + 30 + j * 70} ${
+              px + i * (pw + 14) + pw - 60 + j * 40
+            },${pisoY + 90 + j * 70} ${px + i * (pw + 14) - 60 + j * 40},${pisoY + 90 + j * 70}`}
+            fill="#FFF9EE"
+            opacity={0.9}
+            filter={`url(#${id}-b)`}
+          />
+        )),
+      )}
+    </g>
+  );
+};
+
+// piso de tablas claras (como el Reel 1)
+export const PisoTablas: React.FC<{ y: number }> = ({ y }) => (
+  <g>
+    <rect x={0} y={y} width={W} height={H - y} fill="#E4E2DC" />
+    <line x1={0} y1={y} x2={W} y2={y} stroke={LT} strokeWidth={2.2} />
+    {[0.12, 0.3, 0.55, 0.85].map((k, i) => (
+      <line key={i} x1={0} y1={y + (H - y) * k} x2={W} y2={y + (H - y) * k + 8 * i} stroke={LT} strokeWidth={1.2} opacity={0.35} />
+    ))}
+  </g>
+);
+
 const Lienzo: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <svg width={W} height={H} style={{ position: "absolute", inset: 0 }}>
-    <rect width={W} height={H} fill="#FFFEFE" />
+    <rect width={W} height={H} fill="#ECEBE6" />
     {children}
   </svg>
 );
@@ -176,11 +240,8 @@ export const FondoDormitorioArriba: React.FC = () => (
 // Escena 3 · dormitorio de lado
 export const FondoDormitorioLado: React.FC = () => (
   <Lienzo>
-    <line x1={0} y1={1560} x2={W} y2={1560} {...L} />
-    <line x1={0} y1={1582} x2={W} y2={1582} {...L2} opacity={0.6} />
-    {[1660, 1760, 1880].map((y, i) => (
-      <line key={y} x1={0} y1={y} x2={W} y2={y + 30 + i * 6} {...L2} opacity={0.3} />
-    ))}
+    <PisoTablas y={1560} />
+    <Sol vx={700} vy={830} vw={300} vh={470} pisoY={1560} largo={560} />
     <Cuadro x={120} y={880} w={200} h={160} />
     <Ventana x={700} y={830} w={300} h={470} />
     <Cortina x={640} y={806} w={120} h={560} fase={0.2} />
@@ -208,9 +269,9 @@ export const FondoCocina: React.FC<{ pisoY: number }> = ({ pisoY }) => (
 // Escena 6 · cocina amplia (Dani pequeña)
 export const FondoCocinaAmplia: React.FC = () => (
   <Lienzo>
-    <rect x={0} y={1650} width={W} height={H - 1650} fill="#F1E2D0" />
-    <line x1={0} y1={1650} x2={W} y2={1650} {...L} />
+    <PisoTablas y={1650} />
     <Ventana x={620} y={850} w={290} h={360} />
+    <Sol vx={620} vy={850} vw={290} vh={360} pisoY={1650} largo={520} />
     <Cortina x={562} y={826} w={110} h={430} fase={1.2} />
     <Repisa x={110} y={1000} w={280} />
     <rect x={540} y={1360} width={560} height={290} fill="#fff" {...L} />
@@ -226,9 +287,9 @@ export const FondoCocinaAmplia: React.FC = () => (
 // Escena 7 y cierre · junto a la ventana
 export const FondoVentanaGrande: React.FC = () => (
   <Lienzo>
-    <line x1={0} y1={1780} x2={W} y2={1780} {...L} />
-    <line x1={0} y1={1802} x2={W} y2={1802} {...L2} opacity={0.6} />
+    <PisoTablas y={1780} />
     <Ventana x={640} y={820} w={360} h={700} />
+    <Sol vx={640} vy={820} vw={360} vh={700} pisoY={1780} largo={600} />
     <Cortina x={560} y={796} w={130} h={820} fase={0.3} />
     <Planta x={940} y={1520} s={0.9} fase={0.7} />
   </Lienzo>

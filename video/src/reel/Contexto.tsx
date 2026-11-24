@@ -41,14 +41,14 @@ export const HazDeLuz: React.FC<{
       })
     : 0;
   return (
-    <svg width={W} height={H} style={{ position: "absolute", inset: 0, mixBlendMode: "multiply" }}>
+    <svg width={W} height={H} style={{ position: "absolute", inset: 0 }}>
       <defs>
         <linearGradient id="haz" x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor={COLOR.luz} stopOpacity={0.95} />
-          <stop offset="1" stopColor={COLOR.luz} stopOpacity={0} />
+          <stop offset="0" stopColor="#FBF0DC" stopOpacity={0.95} />
+          <stop offset="1" stopColor="#FBF0DC" stopOpacity={0.15} />
         </linearGradient>
         <filter id="suave">
-          <feGaussianBlur stdDeviation="18" />
+          <feGaussianBlur stdDeviation="10" />
         </filter>
       </defs>
       <polygon
