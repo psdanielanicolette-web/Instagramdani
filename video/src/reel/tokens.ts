@@ -26,7 +26,7 @@ export const TEXTO = {
   retrasoPalabra: 0.12, // s
   entradaPalabra: 0.65, // s
   subida: 18, // px
-  salida: 0.5, // s
+  salida: 0.8, // s (sale junto con la escena)
 };
 
 export const s = (segundos: number) => Math.round(segundos * FPS);
