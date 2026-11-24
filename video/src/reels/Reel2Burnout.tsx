@@ -42,7 +42,7 @@ const FRASES: { texto: string; desde: number; hasta: number }[] = [
   { texto: "y amanecí igual de vacía.", desde: 9.6, hasta: B.s3 - 0.2 },
   { texto: "No es sueño atrasado.", desde: B.s3 + 0.3, hasta: 16.2 },
   { texto: "Dormir no lo repone.", desde: 16.5, hasta: B.s4 - 0.2 },
-  { texto: "Estoy funcionando —", desde: B.s4 + 0.3, hasta: B.s5 - 0.2 },
+  { texto: "Estoy funcionando —", desde: B.s4 + 0.4, hasta: B.s5 - 0.2 }, // entra junto con la acción de servir
   // B.s5 → B.s6: respiro sin texto (la taza)
   { texto: "pero no estoy.", desde: B.s6 + 0.3, hasta: B.s7 - 0.2 },
   { texto: "Quizá no necesito descansar más.", desde: B.s7 + 0.3, hasta: 36.2 },
@@ -121,11 +121,14 @@ export const Reel2Burnout: React.FC = () => {
           <HazDeLuz puntos="990,830 730,830 360,1600 760,1660" intensidad={0.4} />
           <Dani
             imagenes={["r2_cocina_jarra-arriba.png", "r2_cocina_jarra-inclinada.png"]}
-            cambios={[{ t: 21.6, a: 1, dur: 1.4 }]}
+            cambios={[
+              { t: 20.2, a: 1, dur: 0.9 }, // "Estoy funcionando": inclina la jarra y sirve
+              { t: 22.5, a: 0, dur: 0.9 }, // y la vuelve a levantar, en automático
+            ]}
             k={0.85}
             y={100}
           />
-          {t > 22.8 && <Vapor x={781} y={1388} />}
+          {t > 21.0 && <Vapor x={781} y={1388} />}
         </Camara>
       </Plano>
 
@@ -139,7 +142,7 @@ export const Reel2Burnout: React.FC = () => {
           ]}
         >
           <FondoCocinaDetalle pisoY={1736} />
-          <Dani imagenes={["r2_cocina_jarra-inclinada.png"]} respira={false} k={0.85} y={100} />
+          <Dani imagenes={["r2_cocina_jarra-arriba.png"]} respira={false} k={0.85} y={100} />
           <Vapor x={781} y={1388} />
         </Camara>
       </Plano>

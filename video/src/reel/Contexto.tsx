@@ -62,25 +62,27 @@ export const HazDeLuz: React.FC<{
   );
 };
 
-// ---------- Vapor en line art: tres trazos finos que suben ----------
+// ---------- Vapor en line art: un hilo ondulado que sube (como en el Reel 1) ----------
 export const Vapor: React.FC<{ x: number; y: number; escala?: number }> = ({ x, y, escala = 1 }) => {
   const t = useCurrentFrame() / FPS;
+  const alto = 150 * escala;
+  const pts: string[] = [];
+  for (let i = 0; i <= 24; i++) {
+    const k = i / 24;
+    const yy = y - k * alto;
+    const xx = x + Math.sin(k * 7 - t * 1.6) * 7 * escala * (0.3 + k);
+    pts.push(`${xx.toFixed(1)},${yy.toFixed(1)}`);
+  }
+  const fade = 0.55 + 0.1 * Math.sin(t * 0.9);
   return (
     <svg width={W} height={H} style={{ position: "absolute", inset: 0 }}>
-      {[-1, 0, 1].map((k) => {
-        const fase = (t * 0.45 + k * 0.33 + 1) % 1; // ciclo de subida
-        const alto = 70 * escala;
-        const y0 = y - fase * 40 * escala;
-        const ox = x + k * 12 * escala;
-        const w = Math.sin(t * 2 + k) * 6 * escala;
-        const d = `M ${ox} ${y0} C ${ox + 8 * escala + w} ${y0 - alto * 0.33}, ${ox - 8 * escala - w} ${
-          y0 - alto * 0.66
-        }, ${ox + w} ${y0 - alto}`;
-        const o = Math.sin(fase * Math.PI) * 0.55;
-        return (
-          <path key={k} d={d} stroke={COLOR.tinta} strokeWidth={1.6 * escala} fill="none" strokeLinecap="round" opacity={o} />
-        );
-      })}
+      <defs>
+        <linearGradient id={`vap-${x}-${y}`} x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stopColor={COLOR.tinta} stopOpacity={fade} />
+          <stop offset="1" stopColor={COLOR.tinta} stopOpacity={0} />
+        </linearGradient>
+      </defs>
+      <polyline points={pts.join(" ")} stroke={`url(#vap-${x}-${y})`} strokeWidth={2 * escala} fill="none" strokeLinecap="round" />
     </svg>
   );
 };
